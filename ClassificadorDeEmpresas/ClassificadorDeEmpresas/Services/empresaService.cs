@@ -13,6 +13,71 @@ namespace ClassificadorDeEmpresas.Services
     {
         private const string urlWebApi = @"http://localhost:5000/api/";
 
+        public async Task<Resposta> Delete_Empresa(Empresa empresa)
+        {
+            var retorno = new Resposta();
+
+            var json = JsonConvert.SerializeObject(empresa);
+            var dados = new StringContent(json, Encoding.UTF8, "application/json");
+
+            using (HttpClient client = new HttpClient())
+            {
+                var tpost = client.PutAsync(string.Concat(urlWebApi, "empresa/deletarEmpresa"), dados);
+                tpost.Wait();
+
+                var resposta = tpost.Result;
+
+                if (resposta.IsSuccessStatusCode)
+                {
+                    var respostaComoString = await resposta.Content.ReadAsStringAsync();
+
+                    retorno = JsonConvert.DeserializeObject<Resposta>(respostaComoString);
+                }
+                else
+                {
+                    var respostaComoString = await resposta.Content.ReadAsStringAsync();
+
+                    retorno.Status = false;
+                    retorno.Mensagem = string.Concat(resposta.ReasonPhrase, " - ", respostaComoString);
+                }
+            }
+
+            return retorno;
+        }
+
+        public async Task<Resposta> Put_Empresa(Empresa empresa)
+        {
+            var retorno = new Resposta();
+
+
+            var json = JsonConvert.SerializeObject(empresa);
+            var dados = new StringContent(json, Encoding.UTF8, "application/json");
+
+            using (HttpClient client = new HttpClient())
+            {
+                var tpost = client.PutAsync(string.Concat(urlWebApi, "empresa/alterarEmpresa"), dados);
+                tpost.Wait();
+
+                var resposta = tpost.Result;
+
+                if (resposta.IsSuccessStatusCode)
+                {
+                    var respostaComoString = await resposta.Content.ReadAsStringAsync();
+
+                    retorno = JsonConvert.DeserializeObject<Resposta>(respostaComoString);
+                }
+                else
+                {
+                    var respostaComoString = await resposta.Content.ReadAsStringAsync();
+
+                    retorno.Status = false;
+                    retorno.Mensagem = string.Concat(resposta.ReasonPhrase, " - ", respostaComoString);
+                }
+            }
+
+            return retorno;
+        }
+
         public async Task<Resposta> Post_Empresa(Empresa empresa)
         {
             var retorno = new Resposta();

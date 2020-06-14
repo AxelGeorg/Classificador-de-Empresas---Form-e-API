@@ -65,5 +65,71 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpPut]
+        [Route("alterarEmpresa")]
+        public async Task<IActionResult> PutEmpresa([FromBody] Empresa empresa)
+        {
+            try
+            {
+                if (empresa == null)
+                    throw new Exception("O objeto empresa não pode ser nulo.");
+
+                // faz a alteração na base de dados...
+
+                if ((empresa.emp_nome != null) && (empresa.emp_indice != null) && (empresa.emp_qntdNotas != null) && (empresa.emp_qntdDebitos != null))
+                {
+                    dao.alterarEmpresa(empresa.emp_id, empresa.emp_nome, empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
+                }
+                else if ((empresa.emp_nome != null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos == null))
+                {
+                    dao.alterarNomeEmpresa(empresa.emp_id, empresa.emp_nome);
+                }
+                else if ((empresa.emp_nome == null) && (empresa.emp_indice != null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos == null))
+                {
+                    dao.alterarIndiceEmpresa(empresa.emp_id, empresa.emp_indice);
+                }
+                else if ((empresa.emp_nome == null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas != null) && (empresa.emp_qntdDebitos == null))
+                {
+                    dao.alterarNotasEmpresa(empresa.emp_id, empresa.emp_qntdNotas);
+                }
+                else if ((empresa.emp_nome == null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos != null))
+                {
+                    dao.alterarDebitosEmpresa(empresa.emp_id, empresa.emp_qntdDebitos);
+                }
+
+                // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
+                var resposta = new Resposta { Status = true, Mensagem = "Cliente alterado com sucesso." };
+
+                return Ok(resposta);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Route("deletarEmpresa")]
+        public async Task<IActionResult> DeletarEmpresa([FromBody] Empresa empresa)
+        {
+            try
+            {
+                if (empresa == null)
+                    throw new Exception("O objeto empresa não pode ser nulo.");
+
+                // faz a inserção na base de dados...
+                dao.deletarEmpresa(empresa.emp_id);
+
+                // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
+                var resposta = new Resposta { Status = true, Mensagem = "Cliente cadastrado com sucesso." };
+
+                return Ok(resposta);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

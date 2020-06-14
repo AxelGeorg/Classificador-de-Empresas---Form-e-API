@@ -20,7 +20,6 @@ namespace ClassificadorDeEmpresas.View
         public TelaMenu()
         {
             InitializeComponent();
-
             listar();
         }
 
@@ -31,11 +30,6 @@ namespace ClassificadorDeEmpresas.View
 
             for (int i = 0; i < empresas.Count; i++)
             {
-                //ListViewItem itens = new ListViewItem(empresas[i].emp_id);
-                //itens.SubItems.Add(empresas[i].emp_nome);
-                //itens.SubItems.Add(empresas[i].emp_indice);
-                //listView.Items.Add(itens);
-
                 listView.Items.Add(empresas[i].emp_id);
                 listView.Items[i].SubItems.Add(empresas[i].emp_nome);
                 listView.Items[i].SubItems.Add(empresas[i].emp_indice + "%");
@@ -46,24 +40,29 @@ namespace ClassificadorDeEmpresas.View
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
-            TelaCadastrar cad = new TelaCadastrar();
+            TelaCadastrar tela = new TelaCadastrar();
             this.Hide();
-            cad.ShowDialog();
+            tela.ShowDialog();
         }
         private void btn_alterar_Click(object sender, EventArgs e)
         {
-            TelaAlterar alt = new TelaAlterar();
+            TelaAlterar tela = new TelaAlterar();
             this.Hide();
-            alt.ShowDialog();
+            tela.ShowDialog();
         }
 
         private void btn_voltarTela_Click(object sender, EventArgs e)
         {
-            TelaPainel Menu = new TelaPainel();
+            TelaPainel tela = new TelaPainel();
             this.Hide();
-            Menu.ShowDialog();
+            tela.ShowDialog();
         }
 
-        
+        private void btn_deletar_Click(object sender, EventArgs e)
+        {
+            TelaDeletar tela = new TelaDeletar();
+            this.Hide();
+            tela.ShowDialog();
+        }
     }
 }

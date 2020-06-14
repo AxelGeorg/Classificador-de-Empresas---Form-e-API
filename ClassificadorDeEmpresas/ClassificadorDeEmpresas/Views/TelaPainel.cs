@@ -13,14 +13,15 @@ namespace ClassificadorDeEmpresas
 {
     public partial class TelaPainel : Form
     {
+        TelaMenu Menu = new TelaMenu();
         public TelaPainel()
         {
             InitializeComponent();
+            Menu.listar();
         }
 
         public void btn_entrar_Click(object sender, EventArgs e)
         {
-            TelaMenu Menu = new TelaMenu();
             this.Hide();
             Menu.ShowDialog();
         }

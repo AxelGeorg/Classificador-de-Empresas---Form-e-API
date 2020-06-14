@@ -140,6 +140,7 @@
             this.btn_deletar.TabIndex = 7;
             this.btn_deletar.Text = "Deletar";
             this.btn_deletar.UseVisualStyleBackColor = true;
+            this.btn_deletar.Click += new System.EventHandler(this.btn_deletar_Click);
             // 
             // TelaMenu
             // 

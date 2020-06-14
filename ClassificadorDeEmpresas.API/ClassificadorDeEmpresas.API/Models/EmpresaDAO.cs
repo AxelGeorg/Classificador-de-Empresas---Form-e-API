@@ -37,6 +37,144 @@ namespace ClassificadorDeEmpresas.API.Models
             }
         }
 
+        public bool alterarEmpresa(string emp_id, string emp_nome, string emp_indice, string emp_qntdNotas, string emp_qntdDebitos)
+        {
+            try
+            {
+                connection = new MySqlConnection(conexaoString);
+                connection.Open(); // abre a conexão
+                command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = "update empresas set emp_nome = '" + emp_nome + "',emp_indice = '" + emp_indice + "',emp_qntdNotas = '" + emp_qntdNotas + "',emp_qntdDebitos = '" + emp_qntdDebitos + "' where emp_id = '" + emp_id + "';";
+
+                command.ExecuteNonQuery();
+                command.Connection.Close(); //fecha conexão
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool alterarNomeEmpresa(string emp_id, string emp_nome)
+        {
+            try
+            {
+                connection = new MySqlConnection(conexaoString);
+                connection.Open(); // abre a conexão
+                command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = "update empresas set emp_nome = '" + emp_nome + "' where emp_id = '" + emp_id + "';";
+
+                command.ExecuteNonQuery();
+                command.Connection.Close(); //fecha conexão
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool alterarIndiceEmpresa(string emp_id, string emp_indice)
+        {
+            try
+            {
+                connection = new MySqlConnection(conexaoString);
+                connection.Open(); // abre a conexão
+                command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = "update empresas set emp_indice = '" + emp_indice + "' where emp_id = '" + emp_id + "';";
+
+                command.ExecuteNonQuery();
+                command.Connection.Close(); //fecha conexão
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool alterarNotasEmpresa(string emp_id, string emp_qntdNotas)
+        {
+            try
+            {
+                connection = new MySqlConnection(conexaoString);
+                connection.Open(); // abre a conexão
+                command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = "update empresas set emp_qntdNotas = '" + emp_qntdNotas + "' where emp_id = '" + emp_id + "';";
+
+                command.ExecuteNonQuery();
+                command.Connection.Close(); //fecha conexão
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool alterarDebitosEmpresa(string emp_id, string emp_qntdDebitos)
+        {
+            try
+            {
+                connection = new MySqlConnection(conexaoString);
+                connection.Open(); // abre a conexão
+                command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = "update empresas set emp_qntdDebitos = '" + emp_qntdDebitos + "' where emp_id = '" + emp_id + "';";
+
+                command.ExecuteNonQuery();
+                command.Connection.Close(); //fecha conexão
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool deletarEmpresa(string emp_id)
+        {
+            try
+            {
+                connection = new MySqlConnection(conexaoString);
+                connection.Open(); // abre a conexão
+                command = new MySqlCommand();
+                command.Connection = connection;
+
+                command.CommandType = CommandType.Text;
+                command.CommandText = "delete from empresas where emp_id = '" + emp_id + "';";
+
+                command.ExecuteNonQuery();
+                command.Connection.Close(); //fecha conexão
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public List<Empresa> BuscarEmpresas()
         {
             try

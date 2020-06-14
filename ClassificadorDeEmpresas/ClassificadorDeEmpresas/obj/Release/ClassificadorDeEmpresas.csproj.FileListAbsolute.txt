@@ -1,0 +1,17 @@
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Release\ClassificadorDeEmpresas.exe.config
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Release\ClassificadorDeEmpresas.exe
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Release\ClassificadorDeEmpresas.pdb
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Release\Newtonsoft.Json.dll
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Release\Newtonsoft.Json.xml
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.Views.TelaAlterar.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.Views.TelaCadastrar.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.View.TelaMenu.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.TelaPainel.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.Properties.Resources.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.csproj.GenerateResource.cache
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.csproj.CoreCompileInputs.cache
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.csproj.CopyComplete
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.exe
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.pdb
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.csprojAssemblyReference.cache
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Release\ClassificadorDeEmpresas.Views.TelaDeletar.resources
