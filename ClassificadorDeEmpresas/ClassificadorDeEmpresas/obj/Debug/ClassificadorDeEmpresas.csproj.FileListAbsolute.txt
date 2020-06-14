@@ -1,0 +1,16 @@
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.csprojAssemblyReference.cache
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.Views.TelaCadastrar.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.View.TelaMenu.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.TelaPainel.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.Properties.Resources.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.csproj.GenerateResource.cache
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.csproj.CoreCompileInputs.cache
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Debug\ClassificadorDeEmpresas.exe.config
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Debug\ClassificadorDeEmpresas.exe
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Debug\ClassificadorDeEmpresas.pdb
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.csproj.CopyComplete
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.exe
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.pdb
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.Views.TelaAlterar.resources
