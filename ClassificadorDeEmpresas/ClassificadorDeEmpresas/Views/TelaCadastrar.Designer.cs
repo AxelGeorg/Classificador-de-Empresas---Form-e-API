@@ -45,6 +45,7 @@
             this.txtb_nomeEmpresa.Name = "txtb_nomeEmpresa";
             this.txtb_nomeEmpresa.Size = new System.Drawing.Size(210, 20);
             this.txtb_nomeEmpresa.TabIndex = 0;
+            this.txtb_nomeEmpresa.TextChanged += new System.EventHandler(this.txtb_nomeEmpresa_TextChanged);
             // 
             // lbl_nomeEmpresa
             // 
@@ -99,6 +100,7 @@
             this.txtb_notasMes.Name = "txtb_notasMes";
             this.txtb_notasMes.Size = new System.Drawing.Size(210, 20);
             this.txtb_notasMes.TabIndex = 6;
+            this.txtb_notasMes.TextChanged += new System.EventHandler(this.txtb_notasMes_TextChanged);
             // 
             // lbl_debitosMes
             // 
@@ -115,6 +117,7 @@
             this.txtb_debitosMes.Name = "txtb_debitosMes";
             this.txtb_debitosMes.Size = new System.Drawing.Size(210, 20);
             this.txtb_debitosMes.TabIndex = 8;
+            this.txtb_debitosMes.TextChanged += new System.EventHandler(this.txtb_debitosMes_TextChanged);
             // 
             // TelaCadastrar
             // 

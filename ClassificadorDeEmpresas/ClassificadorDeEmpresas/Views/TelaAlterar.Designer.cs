@@ -42,17 +42,15 @@
             this.btn_alterar = new System.Windows.Forms.Button();
             this.lbl_novoNome = new System.Windows.Forms.Label();
             this.txtb_novoNome = new System.Windows.Forms.TextBox();
-            this.lbl_novoIndice = new System.Windows.Forms.Label();
-            this.txtb_novoIndice = new System.Windows.Forms.TextBox();
             this.lbl_novoNotas = new System.Windows.Forms.Label();
             this.txtb_novoNotas = new System.Windows.Forms.TextBox();
             this.lbl_novoDebitos = new System.Windows.Forms.Label();
             this.txtb_novoDebitos = new System.Windows.Forms.TextBox();
             this.rdb_nome = new System.Windows.Forms.RadioButton();
-            this.rdb_indice = new System.Windows.Forms.RadioButton();
             this.rdb_notas = new System.Windows.Forms.RadioButton();
             this.rdb_debitos = new System.Windows.Forms.RadioButton();
             this.rdb_todos = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_voltarTela
@@ -89,6 +87,7 @@
             this.txtb_empresaAlterar.Name = "txtb_empresaAlterar";
             this.txtb_empresaAlterar.Size = new System.Drawing.Size(217, 20);
             this.txtb_empresaAlterar.TabIndex = 3;
+            this.txtb_empresaAlterar.TextChanged += new System.EventHandler(this.txtb_empresaAlterar_TextChanged);
             // 
             // listViewAlterar
             // 
@@ -166,22 +165,7 @@
             this.txtb_novoNome.Name = "txtb_novoNome";
             this.txtb_novoNome.Size = new System.Drawing.Size(185, 20);
             this.txtb_novoNome.TabIndex = 8;
-            // 
-            // lbl_novoIndice
-            // 
-            this.lbl_novoIndice.AutoSize = true;
-            this.lbl_novoIndice.Location = new System.Drawing.Point(113, 304);
-            this.lbl_novoIndice.Name = "lbl_novoIndice";
-            this.lbl_novoIndice.Size = new System.Drawing.Size(39, 13);
-            this.lbl_novoIndice.TabIndex = 9;
-            this.lbl_novoIndice.Text = "Indice:";
-            // 
-            // txtb_novoIndice
-            // 
-            this.txtb_novoIndice.Location = new System.Drawing.Point(157, 301);
-            this.txtb_novoIndice.Name = "txtb_novoIndice";
-            this.txtb_novoIndice.Size = new System.Drawing.Size(185, 20);
-            this.txtb_novoIndice.TabIndex = 10;
+            this.txtb_novoNome.TextChanged += new System.EventHandler(this.txtb_novoNome_TextChanged);
             // 
             // lbl_novoNotas
             // 
@@ -198,6 +182,7 @@
             this.txtb_novoNotas.Name = "txtb_novoNotas";
             this.txtb_novoNotas.Size = new System.Drawing.Size(185, 20);
             this.txtb_novoNotas.TabIndex = 12;
+            this.txtb_novoNotas.TextChanged += new System.EventHandler(this.txtb_novoNotas_TextChanged);
             // 
             // lbl_novoDebitos
             // 
@@ -214,6 +199,7 @@
             this.txtb_novoDebitos.Name = "txtb_novoDebitos";
             this.txtb_novoDebitos.Size = new System.Drawing.Size(185, 20);
             this.txtb_novoDebitos.TabIndex = 14;
+            this.txtb_novoDebitos.TextChanged += new System.EventHandler(this.txtb_novoDebitos_TextChanged);
             // 
             // rdb_nome
             // 
@@ -225,17 +211,6 @@
             this.rdb_nome.TabStop = true;
             this.rdb_nome.UseVisualStyleBackColor = true;
             this.rdb_nome.CheckedChanged += new System.EventHandler(this.rdb_nome_CheckedChanged);
-            // 
-            // rdb_indice
-            // 
-            this.rdb_indice.AutoSize = true;
-            this.rdb_indice.Location = new System.Drawing.Point(91, 304);
-            this.rdb_indice.Name = "rdb_indice";
-            this.rdb_indice.Size = new System.Drawing.Size(14, 13);
-            this.rdb_indice.TabIndex = 16;
-            this.rdb_indice.TabStop = true;
-            this.rdb_indice.UseVisualStyleBackColor = true;
-            this.rdb_indice.CheckedChanged += new System.EventHandler(this.rdb_indice_CheckedChanged);
             // 
             // rdb_notas
             // 
@@ -262,27 +237,33 @@
             // rdb_todos
             // 
             this.rdb_todos.AutoSize = true;
-            this.rdb_todos.Location = new System.Drawing.Point(91, 350);
+            this.rdb_todos.Location = new System.Drawing.Point(91, 302);
             this.rdb_todos.Name = "rdb_todos";
-            this.rdb_todos.Size = new System.Drawing.Size(107, 17);
+            this.rdb_todos.Size = new System.Drawing.Size(14, 13);
             this.rdb_todos.TabIndex = 19;
             this.rdb_todos.TabStop = true;
-            this.rdb_todos.Text = "Selecionar todos.\r\n";
             this.rdb_todos.UseVisualStyleBackColor = true;
             this.rdb_todos.CheckedChanged += new System.EventHandler(this.rdb_todos_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(112, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Selecionar todos.";
             // 
             // TelaAlterar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.rdb_todos);
             this.Controls.Add(this.txtb_novoDebitos);
             this.Controls.Add(this.rdb_debitos);
-            this.Controls.Add(this.txtb_novoIndice);
             this.Controls.Add(this.lbl_novoDebitos);
-            this.Controls.Add(this.lbl_novoIndice);
-            this.Controls.Add(this.rdb_indice);
             this.Controls.Add(this.txtb_novoNotas);
             this.Controls.Add(this.lbl_novoNotas);
             this.Controls.Add(this.rdb_notas);
@@ -319,16 +300,14 @@
         private System.Windows.Forms.Button btn_alterar;
         private System.Windows.Forms.Label lbl_novoNome;
         private System.Windows.Forms.TextBox txtb_novoNome;
-        private System.Windows.Forms.Label lbl_novoIndice;
-        private System.Windows.Forms.TextBox txtb_novoIndice;
         private System.Windows.Forms.Label lbl_novoNotas;
         private System.Windows.Forms.TextBox txtb_novoNotas;
         private System.Windows.Forms.Label lbl_novoDebitos;
         private System.Windows.Forms.TextBox txtb_novoDebitos;
         private System.Windows.Forms.RadioButton rdb_nome;
-        private System.Windows.Forms.RadioButton rdb_indice;
         private System.Windows.Forms.RadioButton rdb_notas;
         private System.Windows.Forms.RadioButton rdb_debitos;
         private System.Windows.Forms.RadioButton rdb_todos;
+        private System.Windows.Forms.Label label2;
     }
 }

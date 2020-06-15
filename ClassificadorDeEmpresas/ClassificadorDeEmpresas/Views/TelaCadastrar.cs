@@ -20,10 +20,13 @@ namespace ClassificadorDeEmpresas.Views
         public TelaCadastrar()
         {
             InitializeComponent();
+
+            btn_cadastrar.Enabled = false;
         }
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
+            TelaMenu tela = new TelaMenu();
             Empresa emp = new Empresa();
 
             emp.emp_nome = txtb_nomeEmpresa.Text;
@@ -31,18 +34,63 @@ namespace ClassificadorDeEmpresas.Views
             emp.emp_qntdNotas = txtb_notasMes.Text;
             emp.emp_qntdDebitos = txtb_debitosMes.Text;
             
-            //validação dos campos
+            //valida se há outra empresa com msm nome
+
+
+
+
+
 
             var retorno = service.Post_Empresa(emp).GetAwaiter().GetResult();
 
             MessageBox.Show(retorno.Mensagem, "Aviso");
+
+            tela.listar();
+            this.Hide();
+            tela.ShowDialog();
         }
 
         private void btn_voltarTela_Click(object sender, EventArgs e)
         {
-            TelaMenu Menu = new TelaMenu();
+            TelaMenu tela = new TelaMenu();
             this.Hide();
-            Menu.ShowDialog();
+            tela.ShowDialog();
+        }
+
+        private void txtb_nomeEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrWhiteSpace(txtb_nomeEmpresa.Text)) && (!string.IsNullOrWhiteSpace(txtb_notasMes.Text)) && (!string.IsNullOrWhiteSpace(txtb_debitosMes.Text)))
+            {
+                btn_cadastrar.Enabled = true;
+            }
+            else
+            {
+                btn_cadastrar.Enabled = false;
+            }
+        }
+
+        private void txtb_notasMes_TextChanged(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrWhiteSpace(txtb_nomeEmpresa.Text)) && (!string.IsNullOrWhiteSpace(txtb_notasMes.Text)) && (!string.IsNullOrWhiteSpace(txtb_debitosMes.Text)))
+            {
+                btn_cadastrar.Enabled = true;
+            }
+            else
+            {
+                btn_cadastrar.Enabled = false;
+            }
+        }
+
+        private void txtb_debitosMes_TextChanged(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrWhiteSpace(txtb_nomeEmpresa.Text)) && (!string.IsNullOrWhiteSpace(txtb_notasMes.Text)) && (!string.IsNullOrWhiteSpace(txtb_debitosMes.Text)))
+            {
+                btn_cadastrar.Enabled = true;
+            }
+            else
+            {
+                btn_cadastrar.Enabled = false;
+            }
         }
     }
 }

@@ -17,20 +17,20 @@ namespace ClassificadorDeEmpresas.Views
     {
         empresaService service = new empresaService();
         Empresa emp = new Empresa();
-        TelaMenu Menu = new TelaMenu();
+        TelaMenu tela = new TelaMenu();
 
         public TelaAlterar()
         {
             InitializeComponent();
+
+            btn_pesquisar.Enabled = false;
             btn_alterar.Enabled = false;
             txtb_novoNome.Enabled = false;
-            txtb_novoIndice.Enabled = false;
             txtb_novoNotas.Enabled = false;
             txtb_novoDebitos.Enabled = false;
 
             txtb_empresaAlterar.Text = "";
             rdb_nome.Enabled = false;
-            rdb_indice.Enabled = false;
             rdb_notas.Enabled = false;
             rdb_debitos.Enabled = false;
             rdb_todos.Enabled = false;
@@ -38,57 +38,58 @@ namespace ClassificadorDeEmpresas.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            TelaMenu tela = new TelaMenu();
             this.Hide();
-            Menu.ShowDialog();
+            tela.ShowDialog();
         }
 
         private void btn_pesquisar_Click(object sender, EventArgs e)
         {
-            //melhorar a validação...
-            if (txtb_empresaAlterar.Text.Trim()=="")
+            int verificaSeRetornou = 0;
+
+            listViewAlterar.Items.Clear();
+            var empresas = service.GetEmpresas().GetAwaiter().GetResult();
+
+            for (int i = 0; i < empresas.Count; i++)
             {
-                MessageBox.Show("Não é possível pesquisar empresas sem nenhum caractere!!", "Aviso");
+                if (txtb_empresaAlterar.Text.Trim() == empresas[i].emp_nome)
+                {
+                   ListViewItem itens = new ListViewItem(empresas[i].emp_id);
+                   //Empresa emp = new Empresa();
+
+                   itens.SubItems.Add(empresas[i].emp_nome);
+                   itens.SubItems.Add(empresas[i].emp_indice + "%");
+                   itens.SubItems.Add(empresas[i].emp_qntdNotas);
+                   itens.SubItems.Add(empresas[i].emp_qntdDebitos);                                               
+                   listViewAlterar.Items.Add(itens);
+
+                   emp.emp_id = empresas[i].emp_id;
+                   emp.emp_nome = empresas[i].emp_nome;
+                   emp.emp_indice = empresas[i].emp_indice;
+                   emp.emp_qntdNotas = empresas[i].emp_qntdNotas;
+                   emp.emp_qntdDebitos = empresas[i].emp_qntdDebitos;
+
+                   rdb_nome.Enabled = true;
+                   rdb_notas.Enabled = true;
+                   rdb_debitos.Enabled = true;
+                   rdb_todos.Enabled = true;
+
+                   verificaSeRetornou = 1;
+                }
             }
-            else
+
+            if (verificaSeRetornou == 0)
             {
-                 listViewAlterar.Items.Clear();
-                 var empresas = service.GetEmpresas().GetAwaiter().GetResult();
-
-                 for (int i = 0; i < empresas.Count; i++)
-                 {
-                     if (txtb_empresaAlterar.Text.Trim() == empresas[i].emp_nome)
-                     {
-                        ListViewItem itens = new ListViewItem(empresas[i].emp_id);
-                        //Empresa emp = new Empresa();
-
-                        itens.SubItems.Add(empresas[i].emp_nome);
-                        itens.SubItems.Add(empresas[i].emp_indice + "%");
-                        itens.SubItems.Add(empresas[i].emp_qntdNotas);
-                        itens.SubItems.Add(empresas[i].emp_qntdDebitos);                                               
-                        listViewAlterar.Items.Add(itens);
-
-                        emp.emp_id = empresas[i].emp_id;
-                        emp.emp_nome = empresas[i].emp_nome;
-                        emp.emp_indice = empresas[i].emp_indice;
-                        emp.emp_qntdNotas = empresas[i].emp_qntdNotas;
-                        emp.emp_qntdDebitos = empresas[i].emp_qntdDebitos;
-
-
-                rdb_nome.Enabled = true;
-                        rdb_indice.Enabled = true;
-                        rdb_notas.Enabled = true;
-                        rdb_debitos.Enabled = true;
-                        rdb_todos.Enabled = true;
-                    }
-                 }
+                MessageBox.Show("Não foi possìvel encontrar nenhuma empresa com esse nome!! \nDigite novamente!", "Aviso");
             }
         }
+    
 
         private void btn_alterar_Click(object sender, EventArgs e)
         {
+            TelaMenu tela = new TelaMenu();
 
             if ((txtb_novoNome.Enabled == true) &&
-            (txtb_novoIndice.Enabled != true) &&
             (txtb_novoNotas.Enabled != true) &&
             (txtb_novoDebitos.Enabled != true))
             {
@@ -99,18 +100,6 @@ namespace ClassificadorDeEmpresas.Views
                 MessageBox.Show(retorno.Mensagem, "Aviso");
             }
             else if ((txtb_novoNome.Enabled != true) &&
-            (txtb_novoIndice.Enabled == true) &&
-            (txtb_novoNotas.Enabled != true) &&
-            (txtb_novoDebitos.Enabled != true))
-            {
-                emp.emp_indice = txtb_novoIndice.Text;
-
-                var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
-
-                MessageBox.Show(retorno.Mensagem, "Aviso");
-            }
-            else if ((txtb_novoNome.Enabled != true) &&
-            (txtb_novoIndice.Enabled != true) &&
             (txtb_novoNotas.Enabled == true) &&
             (txtb_novoDebitos.Enabled != true))
             {
@@ -121,7 +110,6 @@ namespace ClassificadorDeEmpresas.Views
                 MessageBox.Show(retorno.Mensagem, "Aviso");
             }
             else if ((txtb_novoNome.Enabled != true) &&
-            (txtb_novoIndice.Enabled != true) &&
             (txtb_novoNotas.Enabled != true) &&
             (txtb_novoDebitos.Enabled == true))
             {
@@ -132,12 +120,10 @@ namespace ClassificadorDeEmpresas.Views
                 MessageBox.Show(retorno.Mensagem, "Aviso");
             }
             else if ((txtb_novoNome.Enabled == true) &&
-            (txtb_novoIndice.Enabled == true) &&
             (txtb_novoNotas.Enabled == true) &&
             (txtb_novoDebitos.Enabled == true))
             {
                 emp.emp_nome = txtb_novoNome.Text;
-                emp.emp_indice = txtb_novoIndice.Text;
                 emp.emp_qntdNotas = txtb_novoNotas.Text;
                 emp.emp_qntdDebitos = txtb_novoDebitos.Text;
 
@@ -146,25 +132,18 @@ namespace ClassificadorDeEmpresas.Views
                 MessageBox.Show(retorno.Mensagem, "Aviso");
             }
 
-            Menu.listar();
+            tela.listar();
             this.Hide();
-            Menu.ShowDialog();
+            tela.ShowDialog();
         }
 
         private void rdb_nome_CheckedChanged(object sender, EventArgs e)
         {
             txtb_novoNome.Enabled = true;
-            txtb_novoIndice.Enabled = false;
-            txtb_novoIndice.Text = "";
             txtb_novoNotas.Enabled = false;
             txtb_novoNotas.Text = "";
             txtb_novoDebitos.Enabled = false;
             txtb_novoDebitos.Text = "";
-
-            if (btn_alterar.Enabled == false)
-            {
-                btn_alterar.Enabled = true;
-            }
         }
 
         private void rdb_notas_CheckedChanged(object sender, EventArgs e)
@@ -172,31 +151,8 @@ namespace ClassificadorDeEmpresas.Views
             txtb_novoNotas.Enabled = true;
             txtb_novoNome.Enabled = false;
             txtb_novoNome.Text = "";
-            txtb_novoIndice.Enabled = false;
-            txtb_novoIndice.Text = "";
             txtb_novoDebitos.Enabled = false;
             txtb_novoDebitos.Text = "";
-
-            if (btn_alterar.Enabled == false)
-            {
-                btn_alterar.Enabled = true;
-            }
-        }
-
-        private void rdb_indice_CheckedChanged(object sender, EventArgs e)
-        {
-            txtb_novoIndice.Enabled = true;
-            txtb_novoNome.Enabled = false;
-            txtb_novoNome.Text = "";
-            txtb_novoNotas.Enabled = false;
-            txtb_novoNotas.Text = "";
-            txtb_novoDebitos.Enabled = false; 
-            txtb_novoDebitos.Text = "";
-
-            if (btn_alterar.Enabled == false)
-            {
-                btn_alterar.Enabled = true;
-            }
         }
 
         private void rdb_debitos_CheckedChanged(object sender, EventArgs e)
@@ -204,27 +160,76 @@ namespace ClassificadorDeEmpresas.Views
             txtb_novoDebitos.Enabled = true;
             txtb_novoNome.Enabled = false;
             txtb_novoNome.Text = "";
-            txtb_novoIndice.Enabled = false;
-            txtb_novoIndice.Text = "";
             txtb_novoNotas.Enabled = false;
             txtb_novoNotas.Text = "";
-
-            if (btn_alterar.Enabled == false)
-            {
-                btn_alterar.Enabled = true;
-            }
         }
 
         private void rdb_todos_CheckedChanged(object sender, EventArgs e)
         {
             txtb_novoNome.Enabled = true;
-            txtb_novoIndice.Enabled = true;
             txtb_novoNotas.Enabled = true;
             txtb_novoDebitos.Enabled = true;
+        }
 
-            if (btn_alterar.Enabled == false)
+        private void txtb_empresaAlterar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtb_empresaAlterar.Text))
             {
-                btn_alterar.Enabled = true;
+                btn_pesquisar.Enabled = true;
+            }
+            else
+            {
+                listViewAlterar.Items.Clear();
+                btn_alterar.Enabled = false;
+                btn_pesquisar.Enabled = false;
+                txtb_novoNome.Enabled = false;
+                txtb_novoNotas.Enabled = false;
+                txtb_novoDebitos.Enabled = false;
+                rdb_nome.Enabled = false;
+                rdb_notas.Enabled = false;
+                rdb_debitos.Enabled = false;
+                rdb_todos.Enabled = false;
+            }
+        }
+
+        private void txtb_novoNome_TextChanged(object sender, EventArgs e)
+        {
+            verificacaoRadioAndText();
+        }
+
+        private void txtb_novoNotas_TextChanged(object sender, EventArgs e)
+        {
+            verificacaoRadioAndText();
+        }
+
+        private void txtb_novoDebitos_TextChanged(object sender, EventArgs e)
+        {
+            verificacaoRadioAndText();
+        }
+
+        public void verificacaoRadioAndText()
+        {
+            if (rdb_todos.Checked == true)
+            {
+                if ((!string.IsNullOrWhiteSpace(txtb_novoNome.Text)) && (!string.IsNullOrWhiteSpace(txtb_novoNotas.Text)) && (!string.IsNullOrWhiteSpace(txtb_novoDebitos.Text)))
+                {
+                    btn_alterar.Enabled = true;
+                }
+                else
+                {
+                    btn_alterar.Enabled = false;
+                }
+            }
+            else if (rdb_todos.Checked == false)
+            {
+                if ((!string.IsNullOrWhiteSpace(txtb_novoNome.Text)) || (!string.IsNullOrWhiteSpace(txtb_novoNotas.Text)) || (!string.IsNullOrWhiteSpace(txtb_novoDebitos.Text)))
+                {
+                    btn_alterar.Enabled = true;
+                }
+                else
+                {
+                    btn_alterar.Enabled = false;
+                }
             }
         }
     }

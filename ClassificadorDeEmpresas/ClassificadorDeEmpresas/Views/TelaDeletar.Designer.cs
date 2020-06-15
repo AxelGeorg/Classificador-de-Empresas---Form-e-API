@@ -108,6 +108,7 @@
             this.txtb_empresaDeletar.Name = "txtb_empresaDeletar";
             this.txtb_empresaDeletar.Size = new System.Drawing.Size(217, 20);
             this.txtb_empresaDeletar.TabIndex = 7;
+            this.txtb_empresaDeletar.TextChanged += new System.EventHandler(this.txtb_empresaDeletar_TextChanged);
             // 
             // lbl_empresaDeletar
             // 

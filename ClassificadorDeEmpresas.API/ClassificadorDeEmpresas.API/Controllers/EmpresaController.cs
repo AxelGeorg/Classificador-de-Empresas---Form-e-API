@@ -48,20 +48,21 @@ namespace ClassificadorDeEmpresas.API.Controllers
         public async Task<IActionResult> PostEmpresa([FromBody] Empresa empresa)
         {
             Empresa empCalculo = new Empresa();
+            var novoIndice = "";
 
             try
             {
                 if (empresa == null)
                     throw new Exception("O objeto empresa não pode ser nulo.");
 
-                empCalculo = calculoDeConfiabilidade(empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
+                empCalculo = calculoDeConfiabilidade(empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
 
-                empresa.emp_indice = empCalculo.emp_indice;
+                novoIndice = empCalculo.emp_indice;
                 empresa.emp_qntdNotas = empCalculo.emp_qntdNotas;
                 empresa.emp_qntdDebitos = empCalculo.emp_qntdDebitos;
 
                 // faz a inserção na base de dados...
-                dao.cadastrarEmpresa(empresa.emp_nome, empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos) ;
+                dao.cadastrarEmpresa(empresa.emp_nome, novoIndice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos) ;
 
                 // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
                 var resposta = new Resposta { Status = true, Mensagem = "Cliente cadastrado com sucesso." };
@@ -79,6 +80,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
         public async Task<IActionResult> PutEmpresa([FromBody] Empresa empresa)
         {
             Empresa empCalculo = new Empresa();
+            var novoIndice = "";
 
             try
             {
@@ -87,32 +89,12 @@ namespace ClassificadorDeEmpresas.API.Controllers
 
                 // faz a alteração na base de dados...
 
-                empCalculo = calculoDeConfiabilidade(empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
-                empresa.emp_indice = empCalculo.emp_indice;
+                empCalculo = calculoDeConfiabilidade(empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
+                novoIndice = empCalculo.emp_indice;
                 empresa.emp_qntdNotas = empCalculo.emp_qntdNotas;
                 empresa.emp_qntdDebitos = empCalculo.emp_qntdDebitos;
 
-               // if ((empresa.emp_nome != null) && (empresa.emp_indice != null) && (empresa.emp_qntdNotas != null) && (empresa.emp_qntdDebitos != null))
-                //{
-                    dao.alterarEmpresa(empresa.emp_id, empresa.emp_nome, empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
-                //}
-                /*
-                else if ((empresa.emp_nome != null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos == null))
-                {
-                    dao.alterarNomeEmpresa(empresa.emp_id, empresa.emp_nome);
-                }
-                else if ((empresa.emp_nome == null) && (empresa.emp_indice != null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos == null))
-                {
-                    dao.alterarIndiceEmpresa(empresa.emp_id, empresa.emp_indice);
-                }
-                else if ((empresa.emp_nome == null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas != null) && (empresa.emp_qntdDebitos == null))
-                {
-                    dao.alterarNotasEmpresa(empresa.emp_id, empresa.emp_qntdNotas);
-                }
-                else if ((empresa.emp_nome == null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos != null))
-                {
-                    dao.alterarDebitosEmpresa(empresa.emp_id, empresa.emp_qntdDebitos);
-                }*/
+                dao.alterarEmpresa(empresa.emp_id, empresa.emp_nome, novoIndice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
 
                 // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
                 var resposta = new Resposta { Status = true, Mensagem = "Cliente alterado com sucesso." };
@@ -148,7 +130,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
             }
         }
 
-        public Empresa calculoDeConfiabilidade(string indice, string totalNotas, string totalDebitos)
+        public Empresa calculoDeConfiabilidade(string totalNotas, string totalDebitos)
         {
             var empresaCal = new Empresa();
 

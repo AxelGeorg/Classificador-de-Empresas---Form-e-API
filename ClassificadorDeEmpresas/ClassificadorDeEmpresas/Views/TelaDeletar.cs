@@ -24,6 +24,7 @@ namespace ClassificadorDeEmpresas.Views
             InitializeComponent();
 
             btn_deletar.Enabled = false;
+            btn_pesquisar.Enabled = false;
             txtb_empresaDeletar.Text = "";
         }
 
@@ -35,36 +36,37 @@ namespace ClassificadorDeEmpresas.Views
 
         private void btn_pesquisar_Click(object sender, EventArgs e)
         {
-            //melhorar a validação...
-            if (txtb_empresaDeletar.Text.Trim() == "")
-            {
-                MessageBox.Show("Não é possível pesquisar empresas sem nenhum caractere!!", "Aviso");
-            }
-            else
-            {
-                listViewDeletar.Items.Clear();
-                var empresas = service.GetEmpresas().GetAwaiter().GetResult();
+            int verificaSeRetornou = 0;
 
-                for (int i = 0; i < empresas.Count; i++)
+            listViewDeletar.Items.Clear();
+            var empresas = service.GetEmpresas().GetAwaiter().GetResult();
+
+            for (int i = 0; i < empresas.Count; i++)
+            {
+                if (txtb_empresaDeletar.Text.Trim() == empresas[i].emp_nome)
                 {
-                    if (txtb_empresaDeletar.Text.Trim() == empresas[i].emp_nome)
-                    {
-                        ListViewItem itens = new ListViewItem(empresas[i].emp_id);
-                        //Empresa emp = new Empresa();
+                    ListViewItem itens = new ListViewItem(empresas[i].emp_id);
+                    //Empresa emp = new Empresa();
                         
-                        itens.SubItems.Add(empresas[i].emp_nome);
-                        itens.SubItems.Add(empresas[i].emp_indice + "%");
-                        itens.SubItems.Add(empresas[i].emp_qntdNotas);
-                        itens.SubItems.Add(empresas[i].emp_qntdDebitos);
-                        listViewDeletar.Items.Add(itens);
+                    itens.SubItems.Add(empresas[i].emp_nome);
+                    itens.SubItems.Add(empresas[i].emp_indice + "%");
+                    itens.SubItems.Add(empresas[i].emp_qntdNotas);
+                    itens.SubItems.Add(empresas[i].emp_qntdDebitos);
+                    listViewDeletar.Items.Add(itens);
                                                                                     
-                        emp = empresas[i];
+                    emp = empresas[i];
 
-                        btn_deletar.Enabled = true;
-                    }
+                    btn_deletar.Enabled = true;
+                    verificaSeRetornou = 1;
                 }
             }
+
+            if (verificaSeRetornou == 0)
+            {
+                MessageBox.Show("Não foi possìvel encontrar nenhuma empresa com esse nome!! \nDigite novamente!", "Aviso");
+            }
         }
+
 
         private void btn_deletar_Click(object sender, EventArgs e)
         {
@@ -75,6 +77,20 @@ namespace ClassificadorDeEmpresas.Views
             tela.listar();
             this.Hide();
             tela.ShowDialog();
+        }
+
+        private void txtb_empresaDeletar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtb_empresaDeletar.Text))
+            {
+                btn_pesquisar.Enabled = true;
+            }
+            else
+            {
+                listViewDeletar.Items.Clear();
+                btn_pesquisar.Enabled = false;
+                btn_deletar.Enabled = false;
+            }
         }
     }
 }
