@@ -88,16 +88,29 @@ namespace ClassificadorDeEmpresas.Views
         private void btn_alterar_Click(object sender, EventArgs e)
         {
             TelaMenu tela = new TelaMenu();
+            int verificaSeRetornou = 0;
+            var empresas = service.GetEmpresas().GetAwaiter().GetResult();
 
             if ((txtb_novoNome.Enabled == true) &&
             (txtb_novoNotas.Enabled != true) &&
             (txtb_novoDebitos.Enabled != true))
             {
-                emp.emp_nome = txtb_novoNome.Text;
+                for (int i = 0; i < empresas.Count; i++)
+                {
+                    if (txtb_novoNome.Text.Trim() == empresas[i].emp_nome)
+                    {
+                        verificaSeRetornou = 1;
+                        MessageBox.Show("Não é possível alterar o nome dessa empresa, pois já há uma empresa com esse nome!!", "Aviso");
+                    }
+                }
 
-                var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
+                if (verificaSeRetornou == 0)
+                {
+                    emp.emp_nome = txtb_novoNome.Text;
+                    var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
 
-                MessageBox.Show(retorno.Mensagem, "Aviso");
+                    MessageBox.Show(retorno.Mensagem, "Aviso");
+                }
             }
             else if ((txtb_novoNome.Enabled != true) &&
             (txtb_novoNotas.Enabled == true) &&
@@ -123,18 +136,30 @@ namespace ClassificadorDeEmpresas.Views
             (txtb_novoNotas.Enabled == true) &&
             (txtb_novoDebitos.Enabled == true))
             {
-                emp.emp_nome = txtb_novoNome.Text;
-                emp.emp_qntdNotas = txtb_novoNotas.Text;
-                emp.emp_qntdDebitos = txtb_novoDebitos.Text;
+                for (int i = 0; i < empresas.Count; i++)
+                {
+                    if (txtb_novoNome.Text.Trim() == empresas[i].emp_nome)
+                    {
+                        verificaSeRetornou = 1;
+                        MessageBox.Show("Não é possível alterar o nome dessa empresa, pois já há uma empresa com esse nome!!", "Aviso");
+                    }
+                }
 
-                var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
+                if (verificaSeRetornou == 0)
+                {
+                    emp.emp_nome = txtb_novoNome.Text;
+                    emp.emp_qntdNotas = txtb_novoNotas.Text;
+                    emp.emp_qntdDebitos = txtb_novoDebitos.Text;
 
-                MessageBox.Show(retorno.Mensagem, "Aviso");
+                    var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
+
+                    MessageBox.Show(retorno.Mensagem, "Aviso");
+
+                    tela.listar();
+                    this.Hide();
+                    tela.ShowDialog();
+                }
             }
-
-            tela.listar();
-            this.Hide();
-            tela.ShowDialog();
         }
 
         private void rdb_nome_CheckedChanged(object sender, EventArgs e)

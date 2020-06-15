@@ -28,26 +28,35 @@ namespace ClassificadorDeEmpresas.Views
         {
             TelaMenu tela = new TelaMenu();
             Empresa emp = new Empresa();
+            int verificaSeRetornou = 0;
 
-            emp.emp_nome = txtb_nomeEmpresa.Text;
-            emp.emp_indice = "50";
-            emp.emp_qntdNotas = txtb_notasMes.Text;
-            emp.emp_qntdDebitos = txtb_debitosMes.Text;
-            
             //valida se há outra empresa com msm nome
+            var empresas = service.GetEmpresas().GetAwaiter().GetResult();
 
+            for (int i = 0; i < empresas.Count; i++)
+            {
+                if (txtb_nomeEmpresa.Text.Trim() == empresas[i].emp_nome)
+                {
+                    verificaSeRetornou = 1;
+                    MessageBox.Show("Não é possível cadastrar essa empresa, pois já há uma empresa com esse nome!!", "Aviso");
+                }
+            }
 
+            if (verificaSeRetornou == 0)
+            {
+                emp.emp_nome = txtb_nomeEmpresa.Text;
+                emp.emp_indice = "50";
+                emp.emp_qntdNotas = txtb_notasMes.Text;
+                emp.emp_qntdDebitos = txtb_debitosMes.Text;
 
+                var retorno = service.Post_Empresa(emp).GetAwaiter().GetResult();
 
+                MessageBox.Show(retorno.Mensagem, "Aviso");
 
-
-            var retorno = service.Post_Empresa(emp).GetAwaiter().GetResult();
-
-            MessageBox.Show(retorno.Mensagem, "Aviso");
-
-            tela.listar();
-            this.Hide();
-            tela.ShowDialog();
+                tela.listar();
+                this.Hide();
+                tela.ShowDialog();
+            }
         }
 
         private void btn_voltarTela_Click(object sender, EventArgs e)
