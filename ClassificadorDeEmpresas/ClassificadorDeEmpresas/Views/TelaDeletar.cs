@@ -17,6 +17,7 @@ namespace ClassificadorDeEmpresas.Views
     {
         empresaService service = new empresaService();
         Empresa emp = new Empresa();
+        TelaMenu tela = new TelaMenu();
 
         public TelaDeletar()
         {
@@ -28,7 +29,6 @@ namespace ClassificadorDeEmpresas.Views
 
         private void btn_voltarTela_Click(object sender, EventArgs e)
         {
-            TelaMenu tela = new TelaMenu();
             this.Hide();
             tela.ShowDialog();
         }
@@ -47,7 +47,7 @@ namespace ClassificadorDeEmpresas.Views
 
                 for (int i = 0; i < empresas.Count; i++)
                 {
-                    if (listViewDeletar.Text.Trim() == empresas[i].emp_nome)
+                    if (txtb_empresaDeletar.Text.Trim() == empresas[i].emp_nome)
                     {
                         ListViewItem itens = new ListViewItem(empresas[i].emp_id);
                         //Empresa emp = new Empresa();
@@ -71,39 +71,10 @@ namespace ClassificadorDeEmpresas.Views
             var retorno = service.Delete_Empresa(emp).GetAwaiter().GetResult();
 
             MessageBox.Show(retorno.Mensagem, "Aviso");
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //melhorar a validação...
-            if (txtb_empresaDeletar.Text.Trim() == "")
-            {
-                MessageBox.Show("Não é possível pesquisar empresas sem nenhum caractere!!", "Aviso");
-            }
-            else
-            {
-                listViewDeletar.Items.Clear();
-                var empresas = service.GetEmpresas().GetAwaiter().GetResult();
-
-                for (int i = 0; i < empresas.Count; i++)
-                {
-                    if (listViewDeletar.Text.Trim() == empresas[i].emp_nome)
-                    {
-                        ListViewItem itens = new ListViewItem(empresas[i].emp_id);
-                        //Empresa emp = new Empresa();
-
-                        itens.SubItems.Add(empresas[i].emp_nome);
-                        itens.SubItems.Add(empresas[i].emp_indice + "%");
-                        itens.SubItems.Add(empresas[i].emp_qntdNotas);
-                        itens.SubItems.Add(empresas[i].emp_qntdDebitos);
-                        listViewDeletar.Items.Add(itens);
-
-                        emp = empresas[i];
-
-                        btn_deletar.Enabled = true;
-                    }
-                }
-            }
+            tela.listar();
+            this.Hide();
+            tela.ShowDialog();
         }
     }
 }

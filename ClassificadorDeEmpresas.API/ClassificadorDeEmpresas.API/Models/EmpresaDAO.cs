@@ -60,7 +60,7 @@ namespace ClassificadorDeEmpresas.API.Models
             }
         }
 
-        public bool alterarNomeEmpresa(string emp_id, string emp_nome)
+       /* public bool alterarNomeEmpresa(string emp_id, string emp_nome)
         {
             try
             {
@@ -150,7 +150,7 @@ namespace ClassificadorDeEmpresas.API.Models
             {
                 return false;
             }
-        }
+        }*/
 
         public bool deletarEmpresa(string emp_id)
         {
@@ -184,7 +184,7 @@ namespace ClassificadorDeEmpresas.API.Models
 
                 using (connection = new MySqlConnection(conexaoString))
                 {
-                    using (command = new MySqlCommand("select emp_id,emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos from empresas;", connection))
+                    using (command = new MySqlCommand("select emp_id,emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos from empresas order by emp_indice desc;", connection))
                     {
                         connection.Open(); // abre a conexão
                         using (MySqlDataReader dataReader = command.ExecuteReader())

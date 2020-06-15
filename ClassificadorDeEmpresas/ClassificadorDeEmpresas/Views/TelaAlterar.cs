@@ -68,8 +68,13 @@ namespace ClassificadorDeEmpresas.Views
                         listViewAlterar.Items.Add(itens);
 
                         emp.emp_id = empresas[i].emp_id;
+                        emp.emp_nome = empresas[i].emp_nome;
+                        emp.emp_indice = empresas[i].emp_indice;
+                        emp.emp_qntdNotas = empresas[i].emp_qntdNotas;
+                        emp.emp_qntdDebitos = empresas[i].emp_qntdDebitos;
 
-                        rdb_nome.Enabled = true;
+
+                rdb_nome.Enabled = true;
                         rdb_indice.Enabled = true;
                         rdb_notas.Enabled = true;
                         rdb_debitos.Enabled = true;

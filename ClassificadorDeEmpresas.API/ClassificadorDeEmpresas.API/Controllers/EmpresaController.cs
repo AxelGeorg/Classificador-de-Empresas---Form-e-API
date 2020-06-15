@@ -47,10 +47,18 @@ namespace ClassificadorDeEmpresas.API.Controllers
         [Route("cadastrarEmpresa")]
         public async Task<IActionResult> PostEmpresa([FromBody] Empresa empresa)
         {
+            Empresa empCalculo = new Empresa();
+
             try
             {
                 if (empresa == null)
                     throw new Exception("O objeto empresa não pode ser nulo.");
+
+                empCalculo = calculoDeConfiabilidade(empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
+
+                empresa.emp_indice = empCalculo.emp_indice;
+                empresa.emp_qntdNotas = empCalculo.emp_qntdNotas;
+                empresa.emp_qntdDebitos = empCalculo.emp_qntdDebitos;
 
                 // faz a inserção na base de dados...
                 dao.cadastrarEmpresa(empresa.emp_nome, empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos) ;
@@ -70,6 +78,8 @@ namespace ClassificadorDeEmpresas.API.Controllers
         [Route("alterarEmpresa")]
         public async Task<IActionResult> PutEmpresa([FromBody] Empresa empresa)
         {
+            Empresa empCalculo = new Empresa();
+
             try
             {
                 if (empresa == null)
@@ -77,10 +87,16 @@ namespace ClassificadorDeEmpresas.API.Controllers
 
                 // faz a alteração na base de dados...
 
-                if ((empresa.emp_nome != null) && (empresa.emp_indice != null) && (empresa.emp_qntdNotas != null) && (empresa.emp_qntdDebitos != null))
-                {
+                empCalculo = calculoDeConfiabilidade(empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
+                empresa.emp_indice = empCalculo.emp_indice;
+                empresa.emp_qntdNotas = empCalculo.emp_qntdNotas;
+                empresa.emp_qntdDebitos = empCalculo.emp_qntdDebitos;
+
+               // if ((empresa.emp_nome != null) && (empresa.emp_indice != null) && (empresa.emp_qntdNotas != null) && (empresa.emp_qntdDebitos != null))
+                //{
                     dao.alterarEmpresa(empresa.emp_id, empresa.emp_nome, empresa.emp_indice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
-                }
+                //}
+                /*
                 else if ((empresa.emp_nome != null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos == null))
                 {
                     dao.alterarNomeEmpresa(empresa.emp_id, empresa.emp_nome);
@@ -96,7 +112,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 else if ((empresa.emp_nome == null) && (empresa.emp_indice == null) && (empresa.emp_qntdNotas == null) && (empresa.emp_qntdDebitos != null))
                 {
                     dao.alterarDebitosEmpresa(empresa.emp_id, empresa.emp_qntdDebitos);
-                }
+                }*/
 
                 // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
                 var resposta = new Resposta { Status = true, Mensagem = "Cliente alterado com sucesso." };
@@ -109,7 +125,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("deletarEmpresa")]
         public async Task<IActionResult> DeletarEmpresa([FromBody] Empresa empresa)
         {
@@ -118,11 +134,11 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 if (empresa == null)
                     throw new Exception("O objeto empresa não pode ser nulo.");
 
-                // faz a inserção na base de dados...
+                // deleta na base de dados...
                 dao.deletarEmpresa(empresa.emp_id);
 
-                // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
-                var resposta = new Resposta { Status = true, Mensagem = "Cliente cadastrado com sucesso." };
+                // deletou na base de dados com sucesso, então retorna uma resposta de ok.
+                var resposta = new Resposta { Status = true, Mensagem = "Cliente deletado com sucesso." };
 
                 return Ok(resposta);
             }
@@ -130,6 +146,40 @@ namespace ClassificadorDeEmpresas.API.Controllers
             {
                 return StatusCode(500, ex.Message);
             }
+        }
+
+        public Empresa calculoDeConfiabilidade(string indice, string totalNotas, string totalDebitos)
+        {
+            var empresaCal = new Empresa();
+
+            double porcIndice = 50;
+            int qntdNotas = Convert.ToInt32(totalNotas);
+            int qntdDebitos = Convert.ToInt32(totalDebitos);
+
+            for (int i = 0; i <= qntdNotas; i++)
+            {
+                porcIndice = porcIndice + (porcIndice * 0.02);
+                porcIndice = Math.Floor(porcIndice);
+            }
+            for (int i = 0; i <= qntdDebitos; i++)
+            {
+                porcIndice = porcIndice - (porcIndice * 0.04);
+                porcIndice = Math.Ceiling(porcIndice);
+            }
+            if (porcIndice < 1)
+            {
+                porcIndice = 1;
+            }
+            if (porcIndice > 100)
+            {
+                porcIndice = 100;
+            }
+
+            empresaCal.emp_indice = Convert.ToString(porcIndice);
+            empresaCal.emp_qntdNotas = Convert.ToString(qntdNotas);
+            empresaCal.emp_qntdDebitos = Convert.ToString(qntdDebitos);
+
+            return empresaCal;
         }
     }
 }

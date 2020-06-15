@@ -22,10 +22,10 @@ namespace ClassificadorDeEmpresas.Services
 
             using (HttpClient client = new HttpClient())
             {
-                var tpost = client.PutAsync(string.Concat(urlWebApi, "empresa/deletarEmpresa"), dados);
-                tpost.Wait();
+                var tdelete = client.PostAsync(string.Concat(urlWebApi, "empresa/deletarEmpresa"),dados);
+                tdelete.Wait();
 
-                var resposta = tpost.Result;
+                var resposta = tdelete.Result;
 
                 if (resposta.IsSuccessStatusCode)
                 {
@@ -49,16 +49,15 @@ namespace ClassificadorDeEmpresas.Services
         {
             var retorno = new Resposta();
 
-
             var json = JsonConvert.SerializeObject(empresa);
             var dados = new StringContent(json, Encoding.UTF8, "application/json");
 
             using (HttpClient client = new HttpClient())
             {
-                var tpost = client.PutAsync(string.Concat(urlWebApi, "empresa/alterarEmpresa"), dados);
-                tpost.Wait();
+                var tput = client.PutAsync(string.Concat(urlWebApi, "empresa/alterarEmpresa"), dados);
+                tput.Wait();
 
-                var resposta = tpost.Result;
+                var resposta = tput.Result;
 
                 if (resposta.IsSuccessStatusCode)
                 {
