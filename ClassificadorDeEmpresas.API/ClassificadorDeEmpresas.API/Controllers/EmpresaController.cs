@@ -35,12 +35,60 @@ namespace ClassificadorDeEmpresas.API.Controllers
         }
 
         [HttpGet]
-        [Route("obterTamenhoBD")]
-        public async Task<int> Getqntd()
+        [Route("obterEmpresasRankingIndice")]
+        public async Task<IActionResult> GetAllEmpresasIndices()
         {
-            int tamanho = dao.qntdBanco();
+            try
+            {
+                // retorna uma lista simples de empresas.
+                List<Empresa> empresas = new List<Empresa>();
+                empresas = dao.BuscarEmpresasIndices();
 
-            return tamanho;
+                return Ok(empresas);
+            }
+            catch (Exception ex)
+            {
+                // se houver alguma exceção ele retorna o erro 500 e uma mensagem do erro.
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("obterEmpresasRankingNotas")]
+        public async Task<IActionResult> GetAllEmpresasNotas()
+        {
+            try
+            {
+                // retorna uma lista simples de empresas.
+                List<Empresa> empresas = new List<Empresa>();
+                empresas = dao.BuscarEmpresasNotas();
+
+                return Ok(empresas);
+            }
+            catch (Exception ex)
+            {
+                // se houver alguma exceção ele retorna o erro 500 e uma mensagem do erro.
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("obterEmpresasRankingDebitos")]
+        public async Task<IActionResult> GetAllEmpresasDebitos()
+        {
+            try
+            {
+                // retorna uma lista simples de empresas.
+                List<Empresa> empresas = new List<Empresa>();
+                empresas = dao.BuscarEmpresasDebitos();
+
+                return Ok(empresas);
+            }
+            catch (Exception ex)
+            {
+                // se houver alguma exceção ele retorna o erro 500 e uma mensagem do erro.
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost]

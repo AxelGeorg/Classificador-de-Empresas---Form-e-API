@@ -17,7 +17,6 @@ namespace ClassificadorDeEmpresas.Views
     {
         empresaService service = new empresaService();
         Empresa emp = new Empresa();
-        TelaMenu tela = new TelaMenu();
 
         public TelaAlterar()
         {
@@ -80,7 +79,7 @@ namespace ClassificadorDeEmpresas.Views
 
             if (verificaSeRetornou == 0)
             {
-                MessageBox.Show("Não foi possìvel encontrar nenhuma empresa com esse nome!! \nDigite novamente!", "Aviso");
+                MessageBox.Show("Não foi possìvel encontrar nenhuma empresa com esse nome!! \nDigite novamente!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     
@@ -100,16 +99,24 @@ namespace ClassificadorDeEmpresas.Views
                     if (txtb_novoNome.Text.Trim() == empresas[i].emp_nome)
                     {
                         verificaSeRetornou = 1;
-                        MessageBox.Show("Não é possível alterar o nome dessa empresa, pois já há uma empresa com esse nome!!", "Aviso");
+                        MessageBox.Show("Não é possível alterar o nome dessa empresa, pois já há uma empresa com esse nome!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
                 if (verificaSeRetornou == 0)
                 {
                     emp.emp_nome = txtb_novoNome.Text;
-                    var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
 
-                    MessageBox.Show(retorno.Mensagem, "Aviso");
+                    if (MessageBox.Show("Deseja alterar o nome dessa empresa?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
+
+                        MessageBox.Show(retorno.Mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        tela.listar(tela.rankingParaSerExibido());
+                        this.Hide();
+                        tela.ShowDialog();
+                    }
                 }
             }
             else if ((txtb_novoNome.Enabled != true) &&
@@ -118,9 +125,16 @@ namespace ClassificadorDeEmpresas.Views
             {
                 emp.emp_qntdNotas = txtb_novoNotas.Text;
 
-                var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
+                if (MessageBox.Show("Deseja alterar a quantidade de notas dessa empresa?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
 
-                MessageBox.Show(retorno.Mensagem, "Aviso");
+                    MessageBox.Show(retorno.Mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    tela.listar(tela.rankingParaSerExibido());
+                    this.Hide();
+                    tela.ShowDialog();
+                }
             }
             else if ((txtb_novoNome.Enabled != true) &&
             (txtb_novoNotas.Enabled != true) &&
@@ -128,9 +142,16 @@ namespace ClassificadorDeEmpresas.Views
             {
                 emp.emp_qntdDebitos = txtb_novoDebitos.Text;
 
-                var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
+                if (MessageBox.Show("Deseja alterar a quantidade de debitos dessa empresa?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
 
-                MessageBox.Show(retorno.Mensagem, "Aviso");
+                    MessageBox.Show(retorno.Mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    tela.listar(tela.rankingParaSerExibido());
+                    this.Hide();
+                    tela.ShowDialog();
+                }
             }
             else if ((txtb_novoNome.Enabled == true) &&
             (txtb_novoNotas.Enabled == true) &&
@@ -141,7 +162,7 @@ namespace ClassificadorDeEmpresas.Views
                     if (txtb_novoNome.Text.Trim() == empresas[i].emp_nome)
                     {
                         verificaSeRetornou = 1;
-                        MessageBox.Show("Não é possível alterar o nome dessa empresa, pois já há uma empresa com esse nome!!", "Aviso");
+                        MessageBox.Show("Não é possível alterar o nome dessa empresa, pois já há uma empresa com esse nome!!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -151,13 +172,16 @@ namespace ClassificadorDeEmpresas.Views
                     emp.emp_qntdNotas = txtb_novoNotas.Text;
                     emp.emp_qntdDebitos = txtb_novoDebitos.Text;
 
-                    var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
+                    if (MessageBox.Show("Deseja alterar todos os dados dessa empresa?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        var retorno = service.Put_Empresa(emp).GetAwaiter().GetResult();
 
-                    MessageBox.Show(retorno.Mensagem, "Aviso");
+                        MessageBox.Show(retorno.Mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    tela.listar();
-                    this.Hide();
-                    tela.ShowDialog();
+                        tela.listar(tela.rankingParaSerExibido());
+                        this.Hide();
+                        tela.ShowDialog();
+                    }
                 }
             }
         }

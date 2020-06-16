@@ -38,7 +38,7 @@ namespace ClassificadorDeEmpresas.Views
                 if (txtb_nomeEmpresa.Text.Trim() == empresas[i].emp_nome)
                 {
                     verificaSeRetornou = 1;
-                    MessageBox.Show("Não é possível cadastrar essa empresa, pois já há uma empresa com esse nome!!", "Aviso");
+                    MessageBox.Show("Não é possível cadastrar essa empresa, pois já há uma empresa com esse nome!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -49,13 +49,18 @@ namespace ClassificadorDeEmpresas.Views
                 emp.emp_qntdNotas = txtb_notasMes.Text;
                 emp.emp_qntdDebitos = txtb_debitosMes.Text;
 
-                var retorno = service.Post_Empresa(emp).GetAwaiter().GetResult();
+                if (MessageBox.Show("Deseja cadastrar essa empresa?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                {
 
-                MessageBox.Show(retorno.Mensagem, "Aviso");
+                    var retorno = service.Post_Empresa(emp).GetAwaiter().GetResult();
 
-                tela.listar();
-                this.Hide();
-                tela.ShowDialog();
+                    MessageBox.Show(retorno.Mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    tela.listar(tela.rankingParaSerExibido());
+                    this.Hide();
+                    tela.ShowDialog();
+                }
             }
         }
 

@@ -92,6 +92,41 @@ namespace ClassificadorDeEmpresas.API.Models
 
                 using (connection = new MySqlConnection(conexaoString))
                 {
+                    using (command = new MySqlCommand("select emp_id,emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos from empresas order by emp_id asc;", connection))
+                    {
+                        connection.Open(); // abre a conexão
+                        using (MySqlDataReader dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                Empresa emp = new Empresa();
+                                emp.emp_id = dataReader["emp_id"].ToString();
+                                emp.emp_nome = dataReader["emp_nome"].ToString();
+                                emp.emp_indice = dataReader["emp_indice"].ToString();
+                                emp.emp_qntdNotas = dataReader["emp_qntdNotas"].ToString();
+                                emp.emp_qntdDebitos = dataReader["emp_qntdDebitos"].ToString();
+                                empresas.Add(emp);
+                            }
+                        }
+                        return empresas;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao acessar a lista de empresas" + ex.Message);
+            }
+        }
+
+        public List<Empresa> BuscarEmpresasIndices()
+        {
+            try
+            {
+                var empresas = new List<Empresa>();
+                //int qntd = qntdBanco();
+
+                using (connection = new MySqlConnection(conexaoString))
+                {
                     using (command = new MySqlCommand("select emp_id,emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos from empresas order by emp_indice desc;", connection))
                     {
                         connection.Open(); // abre a conexão
@@ -118,24 +153,74 @@ namespace ClassificadorDeEmpresas.API.Models
             }
         }
 
-        public int qntdBanco()
+        public List<Empresa> BuscarEmpresasNotas()
         {
-            int qntd;
+            try
+            {
+                var empresas = new List<Empresa>();
+                //int qntd = qntdBanco();
 
-            connection = new MySqlConnection(conexaoString);
-            connection.Open(); // abre a conexão
-            command = new MySqlCommand("select count(*) from Empresas;", connection);
-            command.CommandType = CommandType.Text;
+                using (connection = new MySqlConnection(conexaoString))
+                {
+                    using (command = new MySqlCommand("select emp_id,emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos from empresas order by emp_qntdNotas desc;", connection))
+                    {
+                        connection.Open(); // abre a conexão
+                        using (MySqlDataReader dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                Empresa emp = new Empresa();
+                                emp.emp_id = dataReader["emp_id"].ToString();
+                                emp.emp_nome = dataReader["emp_nome"].ToString();
+                                emp.emp_indice = dataReader["emp_indice"].ToString();
+                                emp.emp_qntdNotas = dataReader["emp_qntdNotas"].ToString();
+                                emp.emp_qntdDebitos = dataReader["emp_qntdDebitos"].ToString();
+                                empresas.Add(emp);
+                            }
+                        }
+                        return empresas;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao acessar a lista de empresas" + ex.Message);
+            }
+        }
 
-            //Atribui os dados coletados para o dr
-            MySqlDataReader dataReader = command.ExecuteReader();
-            dataReader.Read();
+        public List<Empresa> BuscarEmpresasDebitos()
+        {
+            try
+            {
+                var empresas = new List<Empresa>();
+                //int qntd = qntdBanco();
 
-            qntd = Convert.ToInt32(dataReader.GetString(0));
-
-            command.Connection.Close(); //fecha conexão
-
-            return qntd;
+                using (connection = new MySqlConnection(conexaoString))
+                {
+                    using (command = new MySqlCommand("select emp_id,emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos from empresas order by emp_qntdDebitos desc;", connection))
+                    {
+                        connection.Open(); // abre a conexão
+                        using (MySqlDataReader dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                Empresa emp = new Empresa();
+                                emp.emp_id = dataReader["emp_id"].ToString();
+                                emp.emp_nome = dataReader["emp_nome"].ToString();
+                                emp.emp_indice = dataReader["emp_indice"].ToString();
+                                emp.emp_qntdNotas = dataReader["emp_qntdNotas"].ToString();
+                                emp.emp_qntdDebitos = dataReader["emp_qntdDebitos"].ToString();
+                                empresas.Add(emp);
+                            }
+                        }
+                        return empresas;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao acessar a lista de empresas" + ex.Message);
+            }
         }
     }
 }

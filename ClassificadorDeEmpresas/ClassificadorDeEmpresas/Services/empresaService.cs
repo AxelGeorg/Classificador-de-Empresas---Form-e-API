@@ -110,13 +110,13 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
-        public async Task<List<Empresa>> GetEmpresas()
+        public async Task<List<Empresa>> GetEmpresas()//por padrão retorna o ranking por id
         {
             var retorno = new List<Empresa>();
 
             using (HttpClient client = new HttpClient())
             {
-                var tget = client.GetAsync(string.Concat(urlWebApi, "empresa/obterEmpresas"));
+                var tget = client.GetAsync(string.Concat(urlWebApi, "empresa/obterEmpresas"));       
                 tget.Wait();
 
                 var resposta = tget.Result;
@@ -132,13 +132,13 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
-        public async Task<int> GetTamenhoBD()
+        public async Task<List<Empresa>> GetEmpresasRankingIndice()
         {
-            int retorno = 0;
+            var retorno = new List<Empresa>();
 
             using (HttpClient client = new HttpClient())
             {
-                var tget = client.GetAsync(string.Concat(urlWebApi, "empresa/obterTamenhoBD"));
+                var tget = client.GetAsync(string.Concat(urlWebApi, "empresa/obterEmpresasRankingIndice"));
                 tget.Wait();
 
                 var resposta = tget.Result;
@@ -147,7 +147,51 @@ namespace ClassificadorDeEmpresas.Services
                 {
                     var respostaComoString = await resposta.Content.ReadAsStringAsync();
 
-                    retorno = JsonConvert.DeserializeObject<int>(respostaComoString);
+                    retorno = JsonConvert.DeserializeObject<List<Empresa>>(respostaComoString);
+                }
+            }
+
+            return retorno;
+        }
+
+        public async Task<List<Empresa>> GetEmpresasRankingNotas()
+        {
+            var retorno = new List<Empresa>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                var tget = client.GetAsync(string.Concat(urlWebApi, "empresa/obterEmpresasRankingNotas"));
+                tget.Wait();
+
+                var resposta = tget.Result;
+
+                if (resposta.IsSuccessStatusCode)
+                {
+                    var respostaComoString = await resposta.Content.ReadAsStringAsync();
+
+                    retorno = JsonConvert.DeserializeObject<List<Empresa>>(respostaComoString);
+                }
+            }
+
+            return retorno;
+        }
+
+        public async Task<List<Empresa>> GetEmpresasRankingDebitos()
+        {
+            var retorno = new List<Empresa>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                var tget = client.GetAsync(string.Concat(urlWebApi, "empresa/obterEmpresasRankingDebitos"));
+                tget.Wait();
+
+                var resposta = tget.Result;
+
+                if (resposta.IsSuccessStatusCode)
+                {
+                    var respostaComoString = await resposta.Content.ReadAsStringAsync();
+
+                    retorno = JsonConvert.DeserializeObject<List<Empresa>>(respostaComoString);
                 }
             }
 

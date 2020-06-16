@@ -43,6 +43,7 @@
             // 
             // btn_voltarTela
             // 
+            this.btn_voltarTela.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_voltarTela.Location = new System.Drawing.Point(3, 4);
             this.btn_voltarTela.Name = "btn_voltarTela";
             this.btn_voltarTela.Size = new System.Drawing.Size(93, 34);
@@ -53,9 +54,11 @@
             // 
             // btn_pesquisar
             // 
-            this.btn_pesquisar.Location = new System.Drawing.Point(85, 179);
+            this.btn_pesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_pesquisar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btn_pesquisar.Location = new System.Drawing.Point(54, 175);
             this.btn_pesquisar.Name = "btn_pesquisar";
-            this.btn_pesquisar.Size = new System.Drawing.Size(161, 23);
+            this.btn_pesquisar.Size = new System.Drawing.Size(187, 23);
             this.btn_pesquisar.TabIndex = 9;
             this.btn_pesquisar.Text = "Pesquisar";
             this.btn_pesquisar.UseVisualStyleBackColor = true;
@@ -69,10 +72,12 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listViewDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewDeletar.HideSelection = false;
-            this.listViewDeletar.Location = new System.Drawing.Point(305, 102);
+            this.listViewDeletar.Location = new System.Drawing.Point(329, 102);
             this.listViewDeletar.Name = "listViewDeletar";
-            this.listViewDeletar.Size = new System.Drawing.Size(455, 69);
+            this.listViewDeletar.Scrollable = false;
+            this.listViewDeletar.Size = new System.Drawing.Size(459, 69);
             this.listViewDeletar.TabIndex = 8;
             this.listViewDeletar.UseCompatibleStateImageBehavior = false;
             this.listViewDeletar.View = System.Windows.Forms.View.Details;
@@ -100,11 +105,11 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Debitos no Mês";
-            this.columnHeader5.Width = 91;
+            this.columnHeader5.Width = 93;
             // 
             // txtb_empresaDeletar
             // 
-            this.txtb_empresaDeletar.Location = new System.Drawing.Point(55, 139);
+            this.txtb_empresaDeletar.Location = new System.Drawing.Point(38, 138);
             this.txtb_empresaDeletar.Name = "txtb_empresaDeletar";
             this.txtb_empresaDeletar.Size = new System.Drawing.Size(217, 20);
             this.txtb_empresaDeletar.TabIndex = 7;
@@ -113,7 +118,8 @@
             // lbl_empresaDeletar
             // 
             this.lbl_empresaDeletar.AutoSize = true;
-            this.lbl_empresaDeletar.Location = new System.Drawing.Point(52, 111);
+            this.lbl_empresaDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_empresaDeletar.Location = new System.Drawing.Point(35, 111);
             this.lbl_empresaDeletar.Name = "lbl_empresaDeletar";
             this.lbl_empresaDeletar.Size = new System.Drawing.Size(223, 13);
             this.lbl_empresaDeletar.TabIndex = 6;
@@ -121,6 +127,8 @@
             // 
             // btn_deletar
             // 
+            this.btn_deletar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_deletar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 12F, System.Drawing.FontStyle.Bold);
             this.btn_deletar.Location = new System.Drawing.Point(232, 378);
             this.btn_deletar.Name = "btn_deletar";
             this.btn_deletar.Size = new System.Drawing.Size(317, 29);
@@ -141,6 +149,7 @@
             this.Controls.Add(this.lbl_empresaDeletar);
             this.Controls.Add(this.btn_voltarTela);
             this.Name = "TelaDeletar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaDeletar";
             this.ResumeLayout(false);
             this.PerformLayout();

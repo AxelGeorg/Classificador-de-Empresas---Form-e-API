@@ -55,6 +55,8 @@
             // 
             // btn_voltarTela
             // 
+            this.btn_voltarTela.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_voltarTela.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_voltarTela.Location = new System.Drawing.Point(2, 1);
             this.btn_voltarTela.Name = "btn_voltarTela";
             this.btn_voltarTela.Size = new System.Drawing.Size(92, 33);
@@ -66,16 +68,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(348, 11);
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(307, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.Size = new System.Drawing.Size(196, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tela de Alteração";
             // 
             // lbl_empresaAlterar
             // 
             this.lbl_empresaAlterar.AutoSize = true;
-            this.lbl_empresaAlterar.Location = new System.Drawing.Point(58, 107);
+            this.lbl_empresaAlterar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_empresaAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_empresaAlterar.Location = new System.Drawing.Point(43, 108);
             this.lbl_empresaAlterar.Name = "lbl_empresaAlterar";
             this.lbl_empresaAlterar.Size = new System.Drawing.Size(220, 13);
             this.lbl_empresaAlterar.TabIndex = 2;
@@ -83,7 +89,8 @@
             // 
             // txtb_empresaAlterar
             // 
-            this.txtb_empresaAlterar.Location = new System.Drawing.Point(61, 135);
+            this.txtb_empresaAlterar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtb_empresaAlterar.Location = new System.Drawing.Point(46, 134);
             this.txtb_empresaAlterar.Name = "txtb_empresaAlterar";
             this.txtb_empresaAlterar.Size = new System.Drawing.Size(217, 20);
             this.txtb_empresaAlterar.TabIndex = 3;
@@ -97,10 +104,12 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listViewAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewAlterar.HideSelection = false;
-            this.listViewAlterar.Location = new System.Drawing.Point(311, 98);
+            this.listViewAlterar.Location = new System.Drawing.Point(327, 97);
             this.listViewAlterar.Name = "listViewAlterar";
-            this.listViewAlterar.Size = new System.Drawing.Size(455, 69);
+            this.listViewAlterar.Scrollable = false;
+            this.listViewAlterar.Size = new System.Drawing.Size(461, 69);
             this.listViewAlterar.TabIndex = 4;
             this.listViewAlterar.UseCompatibleStateImageBehavior = false;
             this.listViewAlterar.View = System.Windows.Forms.View.Details;
@@ -128,11 +137,13 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Debitos no Mês";
-            this.columnHeader5.Width = 91;
+            this.columnHeader5.Width = 93;
             // 
             // btn_pesquisar
             // 
-            this.btn_pesquisar.Location = new System.Drawing.Point(91, 175);
+            this.btn_pesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_pesquisar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btn_pesquisar.Location = new System.Drawing.Point(69, 170);
             this.btn_pesquisar.Name = "btn_pesquisar";
             this.btn_pesquisar.Size = new System.Drawing.Size(161, 23);
             this.btn_pesquisar.TabIndex = 5;
@@ -142,6 +153,8 @@
             // 
             // btn_alterar
             // 
+            this.btn_alterar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_alterar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 12F, System.Drawing.FontStyle.Bold);
             this.btn_alterar.Location = new System.Drawing.Point(247, 393);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(317, 29);
@@ -153,6 +166,8 @@
             // lbl_novoNome
             // 
             this.lbl_novoNome.AutoSize = true;
+            this.lbl_novoNome.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_novoNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_novoNome.Location = new System.Drawing.Point(113, 251);
             this.lbl_novoNome.Name = "lbl_novoNome";
             this.lbl_novoNome.Size = new System.Drawing.Size(38, 13);
@@ -161,6 +176,7 @@
             // 
             // txtb_novoNome
             // 
+            this.txtb_novoNome.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtb_novoNome.Location = new System.Drawing.Point(157, 248);
             this.txtb_novoNome.Name = "txtb_novoNome";
             this.txtb_novoNome.Size = new System.Drawing.Size(185, 20);
@@ -170,6 +186,8 @@
             // lbl_novoNotas
             // 
             this.lbl_novoNotas.AutoSize = true;
+            this.lbl_novoNotas.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_novoNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_novoNotas.Location = new System.Drawing.Point(438, 251);
             this.lbl_novoNotas.Name = "lbl_novoNotas";
             this.lbl_novoNotas.Size = new System.Drawing.Size(76, 13);
@@ -178,7 +196,8 @@
             // 
             // txtb_novoNotas
             // 
-            this.txtb_novoNotas.Location = new System.Drawing.Point(520, 248);
+            this.txtb_novoNotas.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtb_novoNotas.Location = new System.Drawing.Point(530, 248);
             this.txtb_novoNotas.Name = "txtb_novoNotas";
             this.txtb_novoNotas.Size = new System.Drawing.Size(185, 20);
             this.txtb_novoNotas.TabIndex = 12;
@@ -187,6 +206,8 @@
             // lbl_novoDebitos
             // 
             this.lbl_novoDebitos.AutoSize = true;
+            this.lbl_novoDebitos.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_novoDebitos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_novoDebitos.Location = new System.Drawing.Point(438, 304);
             this.lbl_novoDebitos.Name = "lbl_novoDebitos";
             this.lbl_novoDebitos.Size = new System.Drawing.Size(84, 13);
@@ -195,7 +216,8 @@
             // 
             // txtb_novoDebitos
             // 
-            this.txtb_novoDebitos.Location = new System.Drawing.Point(520, 301);
+            this.txtb_novoDebitos.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtb_novoDebitos.Location = new System.Drawing.Point(530, 299);
             this.txtb_novoDebitos.Name = "txtb_novoDebitos";
             this.txtb_novoDebitos.Size = new System.Drawing.Size(185, 20);
             this.txtb_novoDebitos.TabIndex = 14;
@@ -204,6 +226,7 @@
             // rdb_nome
             // 
             this.rdb_nome.AutoSize = true;
+            this.rdb_nome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdb_nome.Location = new System.Drawing.Point(91, 251);
             this.rdb_nome.Name = "rdb_nome";
             this.rdb_nome.Size = new System.Drawing.Size(14, 13);
@@ -215,6 +238,7 @@
             // rdb_notas
             // 
             this.rdb_notas.AutoSize = true;
+            this.rdb_notas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdb_notas.Location = new System.Drawing.Point(418, 251);
             this.rdb_notas.Name = "rdb_notas";
             this.rdb_notas.Size = new System.Drawing.Size(14, 13);
@@ -226,6 +250,7 @@
             // rdb_debitos
             // 
             this.rdb_debitos.AutoSize = true;
+            this.rdb_debitos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdb_debitos.Location = new System.Drawing.Point(418, 304);
             this.rdb_debitos.Name = "rdb_debitos";
             this.rdb_debitos.Size = new System.Drawing.Size(14, 13);
@@ -237,6 +262,7 @@
             // rdb_todos
             // 
             this.rdb_todos.AutoSize = true;
+            this.rdb_todos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdb_todos.Location = new System.Drawing.Point(91, 302);
             this.rdb_todos.Name = "rdb_todos";
             this.rdb_todos.Size = new System.Drawing.Size(14, 13);
@@ -248,6 +274,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(112, 302);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
@@ -277,7 +305,9 @@
             this.Controls.Add(this.lbl_empresaAlterar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_voltarTela);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "TelaAlterar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaAlterar";
             this.ResumeLayout(false);
             this.PerformLayout();

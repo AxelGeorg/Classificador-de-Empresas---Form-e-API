@@ -41,26 +41,29 @@
             // 
             // txtb_nomeEmpresa
             // 
-            this.txtb_nomeEmpresa.Location = new System.Drawing.Point(42, 89);
+            this.txtb_nomeEmpresa.Location = new System.Drawing.Point(45, 110);
             this.txtb_nomeEmpresa.Name = "txtb_nomeEmpresa";
-            this.txtb_nomeEmpresa.Size = new System.Drawing.Size(210, 20);
+            this.txtb_nomeEmpresa.Size = new System.Drawing.Size(351, 20);
             this.txtb_nomeEmpresa.TabIndex = 0;
             this.txtb_nomeEmpresa.TextChanged += new System.EventHandler(this.txtb_nomeEmpresa_TextChanged);
             // 
             // lbl_nomeEmpresa
             // 
             this.lbl_nomeEmpresa.AutoSize = true;
-            this.lbl_nomeEmpresa.Location = new System.Drawing.Point(39, 64);
+            this.lbl_nomeEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nomeEmpresa.Location = new System.Drawing.Point(42, 85);
             this.lbl_nomeEmpresa.Name = "lbl_nomeEmpresa";
-            this.lbl_nomeEmpresa.Size = new System.Drawing.Size(97, 13);
+            this.lbl_nomeEmpresa.Size = new System.Drawing.Size(125, 16);
             this.lbl_nomeEmpresa.TabIndex = 1;
             this.lbl_nomeEmpresa.Text = "Nome da Empresa:";
             // 
             // btn_cadastrar
             // 
-            this.btn_cadastrar.Location = new System.Drawing.Point(294, 227);
+            this.btn_cadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cadastrar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cadastrar.Location = new System.Drawing.Point(256, 361);
             this.btn_cadastrar.Name = "btn_cadastrar";
-            this.btn_cadastrar.Size = new System.Drawing.Size(161, 23);
+            this.btn_cadastrar.Size = new System.Drawing.Size(284, 28);
             this.btn_cadastrar.TabIndex = 2;
             this.btn_cadastrar.Text = "Cadastrar";
             this.btn_cadastrar.UseVisualStyleBackColor = true;
@@ -68,6 +71,8 @@
             // 
             // btn_voltarTela
             // 
+            this.btn_voltarTela.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_voltarTela.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_voltarTela.Location = new System.Drawing.Point(0, 0);
             this.btn_voltarTela.Name = "btn_voltarTela";
             this.btn_voltarTela.Size = new System.Drawing.Size(87, 30);
@@ -79,43 +84,46 @@
             // lbl_titulo
             // 
             this.lbl_titulo.AutoSize = true;
-            this.lbl_titulo.Location = new System.Drawing.Point(367, 29);
+            this.lbl_titulo.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_titulo.Location = new System.Drawing.Point(309, 25);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(88, 13);
+            this.lbl_titulo.Size = new System.Drawing.Size(185, 19);
             this.lbl_titulo.TabIndex = 4;
             this.lbl_titulo.Text = "Tela de Cadastro";
             // 
             // lbl_notas
             // 
             this.lbl_notas.AutoSize = true;
-            this.lbl_notas.Location = new System.Drawing.Point(39, 132);
+            this.lbl_notas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_notas.Location = new System.Drawing.Point(42, 162);
             this.lbl_notas.Name = "lbl_notas";
-            this.lbl_notas.Size = new System.Drawing.Size(191, 13);
+            this.lbl_notas.Size = new System.Drawing.Size(241, 16);
             this.lbl_notas.TabIndex = 5;
             this.lbl_notas.Text = "Quantidade de Notas Emitidas no Mês:";
             // 
             // txtb_notasMes
             // 
-            this.txtb_notasMes.Location = new System.Drawing.Point(42, 160);
+            this.txtb_notasMes.Location = new System.Drawing.Point(45, 190);
             this.txtb_notasMes.Name = "txtb_notasMes";
-            this.txtb_notasMes.Size = new System.Drawing.Size(210, 20);
+            this.txtb_notasMes.Size = new System.Drawing.Size(351, 20);
             this.txtb_notasMes.TabIndex = 6;
             this.txtb_notasMes.TextChanged += new System.EventHandler(this.txtb_notasMes_TextChanged);
             // 
             // lbl_debitosMes
             // 
             this.lbl_debitosMes.AutoSize = true;
-            this.lbl_debitosMes.Location = new System.Drawing.Point(42, 199);
+            this.lbl_debitosMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_debitosMes.Location = new System.Drawing.Point(42, 255);
             this.lbl_debitosMes.Name = "lbl_debitosMes";
-            this.lbl_debitosMes.Size = new System.Drawing.Size(199, 13);
+            this.lbl_debitosMes.Size = new System.Drawing.Size(252, 16);
             this.lbl_debitosMes.TabIndex = 7;
             this.lbl_debitosMes.Text = "Quantidade de Debitos Emitidos no Mês:";
             // 
             // txtb_debitosMes
             // 
-            this.txtb_debitosMes.Location = new System.Drawing.Point(42, 227);
+            this.txtb_debitosMes.Location = new System.Drawing.Point(45, 286);
             this.txtb_debitosMes.Name = "txtb_debitosMes";
-            this.txtb_debitosMes.Size = new System.Drawing.Size(210, 20);
+            this.txtb_debitosMes.Size = new System.Drawing.Size(351, 20);
             this.txtb_debitosMes.TabIndex = 8;
             this.txtb_debitosMes.TextChanged += new System.EventHandler(this.txtb_debitosMes_TextChanged);
             // 
@@ -134,6 +142,7 @@
             this.Controls.Add(this.lbl_nomeEmpresa);
             this.Controls.Add(this.txtb_nomeEmpresa);
             this.Name = "TelaCadastrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";
             this.ResumeLayout(false);
             this.PerformLayout();

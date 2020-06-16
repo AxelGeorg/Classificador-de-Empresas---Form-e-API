@@ -34,6 +34,7 @@
             // 
             // btn_entrar
             // 
+            this.btn_entrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_entrar.Location = new System.Drawing.Point(294, 321);
             this.btn_entrar.Name = "btn_entrar";
             this.btn_entrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -46,21 +47,23 @@
             // lbl_titulo
             // 
             this.lbl_titulo.AutoSize = true;
-            this.lbl_titulo.Location = new System.Drawing.Point(336, 96);
+            this.lbl_titulo.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_titulo.Location = new System.Drawing.Point(130, 87);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(133, 39);
+            this.lbl_titulo.Size = new System.Drawing.Size(537, 111);
             this.lbl_titulo.TabIndex = 2;
             this.lbl_titulo.Text = "Seja Bem Vindo ao \r\nClassificador de Empresas \r\nSecretas";
             this.lbl_titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Painel
+            // TelaPainel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lbl_titulo);
             this.Controls.Add(this.btn_entrar);
-            this.Name = "Painel";
+            this.Name = "TelaPainel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,17 +16,42 @@ namespace ClassificadorDeEmpresas.View
     public partial class TelaMenu : Form
     {
         empresaService service = new empresaService();
+        int rankingExibido = 0;
 
         public TelaMenu()
         {
             InitializeComponent();
-            listar();
+            listar(0);
         }
 
-        public void listar()
+        public void listar(int opcao)//colocar arametro para determinada lista
         {
             listView.Items.Clear();
-            var empresas = service.GetEmpresas().GetAwaiter().GetResult();
+            var empresas = new List<Empresa>();
+
+            //ranking pelo ID
+            if (rankingExibido==0)
+            {
+                empresas = service.GetEmpresas().GetAwaiter().GetResult();
+            }
+
+            //ranking pelo indice
+            if (rankingExibido == 1)
+            {
+                empresas = service.GetEmpresasRankingIndice().GetAwaiter().GetResult();
+            }
+
+            //ranking pelo qntdNotas
+            if (rankingExibido == 2)
+            {
+                empresas = service.GetEmpresasRankingNotas().GetAwaiter().GetResult();
+            }
+
+            //ranking pelo qntdDebitos
+            if (rankingExibido == 3)
+            {
+                empresas = service.GetEmpresasRankingDebitos().GetAwaiter().GetResult();
+            }
 
             for (int i = 0; i < empresas.Count; i++)
             {
@@ -36,6 +61,11 @@ namespace ClassificadorDeEmpresas.View
                 listView.Items[i].SubItems.Add(empresas[i].emp_qntdNotas);
                 listView.Items[i].SubItems.Add(empresas[i].emp_qntdDebitos);
             }
+        }
+
+        public int rankingParaSerExibido()
+        {
+            return rankingExibido;
         }
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
@@ -63,6 +93,30 @@ namespace ClassificadorDeEmpresas.View
             TelaDeletar tela = new TelaDeletar();
             this.Hide();
             tela.ShowDialog();
+        }
+
+        private void cbo_ranking_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbo_ranking.SelectedIndex == 0) //ID
+            {
+                rankingExibido = 0;
+                listar(rankingExibido);
+            }
+            else if (cbo_ranking.SelectedIndex == 1) //Indice
+            {
+                rankingExibido = 1;
+                listar(rankingExibido);
+            }
+            else if (cbo_ranking.SelectedIndex == 2) //quantidade de notas
+            {
+                rankingExibido = 2;
+                listar(rankingExibido);
+            }
+            else if (cbo_ranking.SelectedIndex == 3) //quantidade de debitos
+            {
+                rankingExibido = 3; 
+                listar(rankingExibido);
+            }    
         }
     }
 }

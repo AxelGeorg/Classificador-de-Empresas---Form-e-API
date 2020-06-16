@@ -63,20 +63,23 @@ namespace ClassificadorDeEmpresas.Views
 
             if (verificaSeRetornou == 0)
             {
-                MessageBox.Show("Não foi possìvel encontrar nenhuma empresa com esse nome!! \nDigite novamente!", "Aviso");
+                MessageBox.Show("Não foi possìvel encontrar nenhuma empresa com esse nome!! \nDigite novamente!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
         private void btn_deletar_Click(object sender, EventArgs e)
         {
-            var retorno = service.Delete_Empresa(emp).GetAwaiter().GetResult();
+            if (MessageBox.Show("Deseja deletar essa empresa?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                var retorno = service.Delete_Empresa(emp).GetAwaiter().GetResult();
 
-            MessageBox.Show(retorno.Mensagem, "Aviso");
+                MessageBox.Show(retorno.Mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            tela.listar();
-            this.Hide();
-            tela.ShowDialog();
+                tela.listar(tela.rankingParaSerExibido());
+                this.Hide();
+                tela.ShowDialog();
+            }
         }
 
         private void txtb_empresaDeletar_TextChanged(object sender, EventArgs e)
