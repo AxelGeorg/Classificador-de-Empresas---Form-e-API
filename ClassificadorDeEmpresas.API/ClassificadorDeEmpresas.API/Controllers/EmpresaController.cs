@@ -113,7 +113,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 dao.cadastrarEmpresa(empresa.emp_nome, novoIndice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos) ;
 
                 // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
-                var resposta = new Resposta { Status = true, Mensagem = "Cliente cadastrado com sucesso." };
+                var resposta = new Resposta { Status = true, Mensagem = "Empresa cadastrado com sucesso." };
 
                 return Ok(resposta);
             }
@@ -145,7 +145,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 dao.alterarEmpresa(empresa.emp_id, empresa.emp_nome, novoIndice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
 
                 // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
-                var resposta = new Resposta { Status = true, Mensagem = "Cliente alterado com sucesso." };
+                var resposta = new Resposta { Status = true, Mensagem = "Empresa alterado com sucesso." };
 
                 return Ok(resposta);
             }
@@ -168,7 +168,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 dao.deletarEmpresa(empresa.emp_id);
 
                 // deletou na base de dados com sucesso, então retorna uma resposta de ok.
-                var resposta = new Resposta { Status = true, Mensagem = "Cliente deletado com sucesso." };
+                var resposta = new Resposta { Status = true, Mensagem = "Empresa deletada com sucesso." };
 
                 return Ok(resposta);
             }

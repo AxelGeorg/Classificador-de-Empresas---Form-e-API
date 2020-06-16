@@ -15,3 +15,5 @@ C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEm
 C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.pdb
 C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.Views.TelaAlterar.resources
 C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.Views.TelaDeletar.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.Views.TelaAlterarComImportacao.resources
+C:\Users\fe_ma\angular\Sistema Secreto\ClassificadorDeEmpresas\ClassificadorDeEmpresas\obj\Debug\ClassificadorDeEmpresas.Views.TelaCadastrarComImportacao.resources

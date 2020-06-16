@@ -105,11 +105,12 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listViewAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewAlterar.GridLines = true;
             this.listViewAlterar.HideSelection = false;
-            this.listViewAlterar.Location = new System.Drawing.Point(327, 97);
+            this.listViewAlterar.Location = new System.Drawing.Point(327, 108);
             this.listViewAlterar.Name = "listViewAlterar";
             this.listViewAlterar.Scrollable = false;
-            this.listViewAlterar.Size = new System.Drawing.Size(461, 69);
+            this.listViewAlterar.Size = new System.Drawing.Size(461, 63);
             this.listViewAlterar.TabIndex = 4;
             this.listViewAlterar.UseCompatibleStateImageBehavior = false;
             this.listViewAlterar.View = System.Windows.Forms.View.Details;

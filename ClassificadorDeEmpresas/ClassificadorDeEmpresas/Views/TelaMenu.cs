@@ -118,5 +118,19 @@ namespace ClassificadorDeEmpresas.View
                 listar(rankingExibido);
             }    
         }
+
+        private void btn_alterarComImportacao_Click(object sender, EventArgs e)
+        {
+            TelaAlterarComImportacao tela = new TelaAlterarComImportacao();
+            this.Hide();
+            tela.ShowDialog();
+        }
+
+        private void btn_cadastrarComImportação_Click(object sender, EventArgs e)
+        {
+            TelaCadastrarComImportacao tela = new TelaCadastrarComImportacao();
+            this.Hide();
+            tela.ShowDialog();
+        }
     }
 }

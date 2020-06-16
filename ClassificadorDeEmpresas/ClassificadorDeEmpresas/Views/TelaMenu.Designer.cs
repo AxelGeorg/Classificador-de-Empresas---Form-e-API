@@ -40,9 +40,10 @@
             this.btn_voltarTela = new System.Windows.Forms.Button();
             this.btn_alterar = new System.Windows.Forms.Button();
             this.btn_deletar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_alterarComImportacao = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbo_ranking = new System.Windows.Forms.ComboBox();
+            this.btn_cadastrarComImportação = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView
@@ -137,7 +138,7 @@
             // 
             this.btn_alterar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_alterar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_alterar.Location = new System.Drawing.Point(68, 215);
+            this.btn_alterar.Location = new System.Drawing.Point(68, 251);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(280, 27);
             this.btn_alterar.TabIndex = 6;
@@ -149,7 +150,7 @@
             // 
             this.btn_deletar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_deletar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_deletar.Location = new System.Drawing.Point(68, 327);
+            this.btn_deletar.Location = new System.Drawing.Point(68, 349);
             this.btn_deletar.Name = "btn_deletar";
             this.btn_deletar.Size = new System.Drawing.Size(280, 27);
             this.btn_deletar.TabIndex = 7;
@@ -157,14 +158,17 @@
             this.btn_deletar.UseVisualStyleBackColor = true;
             this.btn_deletar.Click += new System.EventHandler(this.btn_deletar_Click);
             // 
-            // button1
+            // btn_alterarComImportacao
             // 
-            this.button1.Location = new System.Drawing.Point(68, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(280, 27);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_alterarComImportacao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_alterarComImportacao.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_alterarComImportacao.Location = new System.Drawing.Point(68, 299);
+            this.btn_alterarComImportacao.Name = "btn_alterarComImportacao";
+            this.btn_alterarComImportacao.Size = new System.Drawing.Size(280, 27);
+            this.btn_alterarComImportacao.TabIndex = 8;
+            this.btn_alterarComImportacao.Text = "Alterar com Importação";
+            this.btn_alterarComImportacao.UseVisualStyleBackColor = true;
+            this.btn_alterarComImportacao.Click += new System.EventHandler(this.btn_alterarComImportacao_Click);
             // 
             // label1
             // 
@@ -193,14 +197,26 @@
             this.cbo_ranking.TabIndex = 10;
             this.cbo_ranking.SelectedIndexChanged += new System.EventHandler(this.cbo_ranking_SelectedIndexChanged);
             // 
+            // btn_cadastrarComImportação
+            // 
+            this.btn_cadastrarComImportação.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_cadastrarComImportação.Location = new System.Drawing.Point(68, 206);
+            this.btn_cadastrarComImportação.Name = "btn_cadastrarComImportação";
+            this.btn_cadastrarComImportação.Size = new System.Drawing.Size(280, 23);
+            this.btn_cadastrarComImportação.TabIndex = 11;
+            this.btn_cadastrarComImportação.Text = "Cadastrar com Importação";
+            this.btn_cadastrarComImportação.UseVisualStyleBackColor = true;
+            this.btn_cadastrarComImportação.Click += new System.EventHandler(this.btn_cadastrarComImportação_Click);
+            // 
             // TelaMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 519);
+            this.Controls.Add(this.btn_cadastrarComImportação);
             this.Controls.Add(this.cbo_ranking);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_alterarComImportacao);
             this.Controls.Add(this.btn_deletar);
             this.Controls.Add(this.btn_alterar);
             this.Controls.Add(this.btn_voltarTela);
@@ -231,8 +247,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_alterarComImportacao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbo_ranking;
+        private System.Windows.Forms.Button btn_cadastrarComImportação;
     }
 }

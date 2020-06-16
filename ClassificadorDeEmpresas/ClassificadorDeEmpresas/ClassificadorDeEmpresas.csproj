@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\Resposta.cs" />
+    <Compile Include="Entities\RetornoJson.cs" />
     <Compile Include="Services\empresaService.cs" />
     <Compile Include="Views\TelaAlterar.cs">
       <SubType>Form</SubType>
@@ -58,11 +59,23 @@
     <Compile Include="Views\TelaAlterar.Designer.cs">
       <DependentUpon>TelaAlterar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TelaAlterarComImportacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TelaAlterarComImportacao.Designer.cs">
+      <DependentUpon>TelaAlterarComImportacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelaCadastrar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\TelaCadastrar.Designer.cs">
       <DependentUpon>TelaCadastrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TelaCadastrarComImportacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TelaCadastrarComImportacao.Designer.cs">
+      <DependentUpon>TelaCadastrarComImportacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\TelaDeletar.cs">
       <SubType>Form</SubType>
@@ -87,8 +100,14 @@
     <EmbeddedResource Include="Views\TelaAlterar.resx">
       <DependentUpon>TelaAlterar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TelaAlterarComImportacao.resx">
+      <DependentUpon>TelaAlterarComImportacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TelaCadastrar.resx">
       <DependentUpon>TelaCadastrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TelaCadastrarComImportacao.resx">
+      <DependentUpon>TelaCadastrarComImportacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TelaDeletar.resx">
       <DependentUpon>TelaDeletar.cs</DependentUpon>
