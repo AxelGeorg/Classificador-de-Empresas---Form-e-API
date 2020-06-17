@@ -19,6 +19,6 @@
 
 -> Desse modo a API seria executada antes e o Form em seguida, assim podendo utilizar tal sistema de classicação de empresas secretas.
 
-OBs.: Os testes unitários estão na pasta ClassificadorDeEmpresas.API.
+OBs.: Os testes unitários estão na pasta ClassificadorDeEmpresas.API, antes de executar os testes tenha certeza que não há mais dados na tabela empresa, caso necessário utilize o seguinte comando no MySQL Workbench -> "truncate table empresas;", no qual tal comando faz um delete de todos os dados da tabela, deixando-a fazia.
 
 OBS.: Para fazer o cadastro ou alteração que necessite da importação de um arquivo .json, há no repositório um exemplo de arquivo.json no qual contém uma lista que pode ser retornada para testar a importação.
