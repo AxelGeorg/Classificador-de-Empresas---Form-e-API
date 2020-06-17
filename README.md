@@ -14,8 +14,8 @@
 
 1 - Faça um git clone desse repositório.  
 2 - Abra o arquivo DATABASE.sql no MySQL Workbench, executando-o quando aberto.   
-3 - Abra a pasta ClassificadorDeEmpresas.API no Visual Studio, execute e aguarde carregar.   
-4 - Abra a pasta ClassificadorDeEmpresas no Visual Studio, execute e aguarde carregar.  
+3 - Abra a pasta ClassificadorDeEmpresas.API no Visual Studio, execute e aguarde carregar, essa pasta contém a API.   
+4 - Abra a pasta ClassificadorDeEmpresas no Visual Studio, execute e aguarde carregar, essa pasta contém o Form, ou seja, a interface.  
 
 -> Desse modo a API seria executada antes e o Form em seguida, assim podendo utilizar tal sistema de classicação de empresas secretas.
 
