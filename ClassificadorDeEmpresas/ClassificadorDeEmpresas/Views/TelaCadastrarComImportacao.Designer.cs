@@ -182,6 +182,7 @@
             this.Controls.Add(this.lbl_tituloCadastrarComImport);
             this.Controls.Add(this.btn_voltarTela);
             this.Name = "TelaCadastrarComImportacao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaCadastrarComImportacao";
             this.ResumeLayout(false);
             this.PerformLayout();

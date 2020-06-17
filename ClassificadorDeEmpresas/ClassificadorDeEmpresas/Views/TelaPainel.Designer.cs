@@ -35,6 +35,7 @@
             // btn_entrar
             // 
             this.btn_entrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_entrar.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9F, System.Drawing.FontStyle.Bold);
             this.btn_entrar.Location = new System.Drawing.Point(294, 321);
             this.btn_entrar.Name = "btn_entrar";
             this.btn_entrar.RightToLeft = System.Windows.Forms.RightToLeft.No;

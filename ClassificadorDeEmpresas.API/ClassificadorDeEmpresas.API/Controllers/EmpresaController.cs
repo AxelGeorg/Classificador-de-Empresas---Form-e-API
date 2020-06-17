@@ -95,7 +95,6 @@ namespace ClassificadorDeEmpresas.API.Controllers
         [Route("cadastrarEmpresa")]
         public async Task<IActionResult> PostEmpresa([FromBody] Empresa empresa)
         {
-            Empresa empCalculo = new Empresa();
             var novoIndice = "";
 
             try
@@ -103,11 +102,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 if (empresa == null)
                     throw new Exception("O objeto empresa não pode ser nulo.");
 
-                empCalculo = calculoDeConfiabilidade(empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
-
-                novoIndice = empCalculo.emp_indice;
-                empresa.emp_qntdNotas = empCalculo.emp_qntdNotas;
-                empresa.emp_qntdDebitos = empCalculo.emp_qntdDebitos;
+                novoIndice = calculoDeConfiabilidade(empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
 
                 // faz a inserção na base de dados...
                 dao.cadastrarEmpresa(empresa.emp_nome, novoIndice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos) ;
@@ -127,7 +122,6 @@ namespace ClassificadorDeEmpresas.API.Controllers
         [Route("alterarEmpresa")]
         public async Task<IActionResult> PutEmpresa([FromBody] Empresa empresa)
         {
-            Empresa empCalculo = new Empresa();
             var novoIndice = "";
 
             try
@@ -137,14 +131,11 @@ namespace ClassificadorDeEmpresas.API.Controllers
 
                 // faz a alteração na base de dados...
 
-                empCalculo = calculoDeConfiabilidade(empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
-                novoIndice = empCalculo.emp_indice;
-                empresa.emp_qntdNotas = empCalculo.emp_qntdNotas;
-                empresa.emp_qntdDebitos = empCalculo.emp_qntdDebitos;
+                novoIndice = calculoDeConfiabilidade(empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
 
                 dao.alterarEmpresa(empresa.emp_id, empresa.emp_nome, novoIndice, empresa.emp_qntdNotas, empresa.emp_qntdDebitos);
 
-                // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok.
+                // fez a inserção na base de dados com sucesso, então retorna uma resposta de ok. 
                 var resposta = new Resposta { Status = true, Mensagem = "Empresa alterado com sucesso." };
 
                 return Ok(resposta);
@@ -178,7 +169,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
             }
         }
 
-        public Empresa calculoDeConfiabilidade(string totalNotas, string totalDebitos)
+        public string calculoDeConfiabilidade(string totalNotas, string totalDebitos)
         {
             var empresaCal = new Empresa();
 
@@ -205,11 +196,7 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 porcIndice = 100;
             }
 
-            empresaCal.emp_indice = Convert.ToString(porcIndice);
-            empresaCal.emp_qntdNotas = Convert.ToString(qntdNotas);
-            empresaCal.emp_qntdDebitos = Convert.ToString(qntdDebitos);
-
-            return empresaCal;
+            return empresaCal.emp_indice = Convert.ToString(porcIndice);
         }
     }
 }
