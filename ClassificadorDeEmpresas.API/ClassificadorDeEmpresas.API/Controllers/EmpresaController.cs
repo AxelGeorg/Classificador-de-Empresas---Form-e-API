@@ -168,7 +168,12 @@ namespace ClassificadorDeEmpresas.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        /// <summary>
+        /// Através dos parâmetros pode-se calcular o índice de confiabilidade.
+        /// </summary>
+        /// <param name="totalNotas"></param>
+        /// <param name="totalDebitos"></param>
+        /// <returns></returns>
         public string calculoDeConfiabilidade(string totalNotas, string totalDebitos)
         {
             var empresaCal = new Empresa();
