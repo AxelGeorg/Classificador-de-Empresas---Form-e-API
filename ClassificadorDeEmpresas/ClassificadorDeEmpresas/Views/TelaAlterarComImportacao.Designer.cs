@@ -154,23 +154,23 @@
             // lbl_arquivoBusca
             // 
             this.lbl_arquivoBusca.AutoSize = true;
-            this.lbl_arquivoBusca.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_arquivoBusca.Location = new System.Drawing.Point(12, 78);
+            this.lbl_arquivoBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_arquivoBusca.Location = new System.Drawing.Point(19, 80);
             this.lbl_arquivoBusca.Name = "lbl_arquivoBusca";
-            this.lbl_arquivoBusca.Size = new System.Drawing.Size(383, 13);
+            this.lbl_arquivoBusca.Size = new System.Drawing.Size(332, 16);
             this.lbl_arquivoBusca.TabIndex = 9;
-            this.lbl_arquivoBusca.Text = "Para procurar um arquivo .json clique no botão:\n";
+            this.lbl_arquivoBusca.Text = "Para procurar um arquivo .json clique no botão abaixo:\n";
             // 
             // lbl_comboBox
             // 
             this.lbl_comboBox.AutoSize = true;
-            this.lbl_comboBox.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_comboBox.Location = new System.Drawing.Point(12, 298);
+            this.lbl_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_comboBox.Location = new System.Drawing.Point(25, 306);
             this.lbl_comboBox.Name = "lbl_comboBox";
-            this.lbl_comboBox.Size = new System.Drawing.Size(407, 26);
+            this.lbl_comboBox.Size = new System.Drawing.Size(345, 32);
             this.lbl_comboBox.TabIndex = 10;
-            this.lbl_comboBox.Text = "Selecione a empresa o qual deseja alterar os dados\r\nde acordo com a tabela a cima" +
-    ":\r\n";
+            this.lbl_comboBox.Text = "Selecione a empresa o qual deseja alterar os dados de \r\nacordo com a tabela a cim" +
+    "a:\r\n";
             // 
             // TelaAlterarComImportacao
             // 

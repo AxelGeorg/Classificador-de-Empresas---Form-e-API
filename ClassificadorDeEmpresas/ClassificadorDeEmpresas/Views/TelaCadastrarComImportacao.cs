@@ -19,7 +19,6 @@ namespace ClassificadorDeEmpresas.Views
     {
         empresaService service = new empresaService();
         List<RetornoJson> jsonEmp;
-        List<Empresa> listaEmpresasNoCmoboBox;
         string notasAltera;
         string debitosAltera;
 
@@ -76,6 +75,10 @@ namespace ClassificadorDeEmpresas.Views
                 listarArquivosJson();
             }
         }
+
+        /// <summary>
+        /// Lista os dados do arquivo json selecionado.
+        /// </summary>
         public void listarArquivosJson()
         {
             if (jsonEmp.Count != 0)

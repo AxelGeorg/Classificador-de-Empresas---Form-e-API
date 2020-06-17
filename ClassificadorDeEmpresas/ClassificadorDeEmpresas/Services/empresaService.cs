@@ -13,6 +13,11 @@ namespace ClassificadorDeEmpresas.Services
     {
         private const string urlWebApi = @"http://localhost:5000/api/";
 
+        /// <summary>
+        /// Através do parametro Empresa utilizado nesse método solicita-se uma deleção via API.
+        /// </summary>
+        /// <param name="empresa"></param>
+        /// <returns></returns>
         public async Task<Resposta> Delete_Empresa(Empresa empresa)
         {
             var retorno = new Resposta();
@@ -45,6 +50,11 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
+        /// <summary>
+        /// Através do parametro Empresa utilizado nesse método solicita-se uma alteração via API.
+        /// </summary>
+        /// <param name="empresa"></param>
+        /// <returns></returns>
         public async Task<Resposta> Put_Empresa(Empresa empresa)
         {
             var retorno = new Resposta();
@@ -77,6 +87,11 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
+        /// <summary>
+        /// Através do parametro Empresa utilizado nesse método solicita-se um cadastro via API.
+        /// </summary>
+        /// <param name="empresa"></param>
+        /// <returns></returns>
         public async Task<Resposta> Post_Empresa(Empresa empresa)
         {
             var retorno = new Resposta();
@@ -110,6 +125,10 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
+        /// <summary>
+        /// Através desse método solicita-se via API um retorno das empresas, de modo que essas estejam ordenadas pelos ids.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Empresa>> GetEmpresas()//por padrão retorna o ranking por id
         {
             var retorno = new List<Empresa>();
@@ -132,6 +151,10 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
+        /// <summary>
+        /// Através desse método solicita-se via API um retorno das empresas, de modo que essas estejam ordenadas pelos indices.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Empresa>> GetEmpresasRankingIndice()
         {
             var retorno = new List<Empresa>();
@@ -154,6 +177,10 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
+        /// <summary>
+        /// Através desse método solicita-se via API um retorno das empresas, de modo que essas estejam ordenadas pelas notas.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Empresa>> GetEmpresasRankingNotas()
         {
             var retorno = new List<Empresa>();
@@ -176,6 +203,10 @@ namespace ClassificadorDeEmpresas.Services
             return retorno;
         }
 
+        /// <summary>
+        /// Através desse método solicita-se via API um retorno das empresas, de modo que essas estejam ordenadas pelos debitos.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Empresa>> GetEmpresasRankingDebitos()
         {
             var retorno = new List<Empresa>();

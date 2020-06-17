@@ -256,6 +256,9 @@ namespace ClassificadorDeEmpresas.Views
             verificacaoRadioAndText();
         }
 
+        /// <summary>
+        /// Verifica se os campos text estão preenchidos, para desse modo habilitar o button alterar.
+        /// </summary>
         public void verificacaoRadioAndText()
         {
             if (rdb_todos.Checked == true)

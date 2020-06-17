@@ -14,17 +14,21 @@ namespace ClassificadorDeEmpresas.API.Models
         MySqlConnection connection = null;
         MySqlCommand command;
 
-        public bool cadastrarEmpresa(string emp_nome, string emp_indice, string emp_qntdNotas, string emp_qntdDebitos)
+        public bool cadastrarEmpresa(string emp_nome, string indice, string qntdNotas, string qntdDebitos)
         {
             try
             {
+                var emp_indice = Convert.ToInt32(indice);
+                var emp_qntdNotas = Convert.ToInt32(qntdNotas);
+                var emp_qntdDebitos = Convert.ToInt32(qntdDebitos);
+
                 connection = new MySqlConnection(conexaoString);
                 connection.Open(); // abre a conexão
                 command = new MySqlCommand();
                 command.Connection = connection;
 
                 command.CommandType = CommandType.Text;
-                command.CommandText = "insert into Empresas (emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos) values ('" + emp_nome + "','" + emp_indice + "','" + emp_qntdNotas + "','" + emp_qntdDebitos + "');";
+                command.CommandText = "insert into Empresas (emp_nome,emp_indice,emp_qntdNotas,emp_qntdDebitos) values ('" + emp_nome + "'," + emp_indice + "," + emp_qntdNotas + "," + emp_qntdDebitos + ");";
 
                 command.ExecuteNonQuery();
                 command.Connection.Close(); //fecha conexão
@@ -37,17 +41,22 @@ namespace ClassificadorDeEmpresas.API.Models
             }
         }
 
-        public bool alterarEmpresa(string emp_id, string emp_nome, string novoIndice, string emp_qntdNotas, string emp_qntdDebitos)
+        public bool alterarEmpresa(string id, string emp_nome, string nvIndice, string qntdNotas, string qntdDebitos)
         {
             try
             {
+                var emp_id = Convert.ToInt32(id);
+                var novoIndice = Convert.ToInt32(nvIndice);
+                var emp_qntdNotas = Convert.ToInt32(qntdNotas);
+                var emp_qntdDebitos = Convert.ToInt32(qntdDebitos);
+
                 connection = new MySqlConnection(conexaoString);
                 connection.Open(); // abre a conexão
                 command = new MySqlCommand();
                 command.Connection = connection;
 
                 command.CommandType = CommandType.Text;
-                command.CommandText = "update empresas set emp_nome = '" + emp_nome + "',emp_indice = '" + novoIndice + "',emp_qntdNotas = '" + emp_qntdNotas + "',emp_qntdDebitos = '" + emp_qntdDebitos + "' where emp_id = '" + emp_id + "';";
+                command.CommandText = "update empresas set emp_nome = '" + emp_nome + "',emp_indice = " + novoIndice + ",emp_qntdNotas = " + emp_qntdNotas + ",emp_qntdDebitos = " + emp_qntdDebitos + " where emp_id = " + emp_id + ";";
 
                 command.ExecuteNonQuery();
                 command.Connection.Close(); //fecha conexão
@@ -59,18 +68,24 @@ namespace ClassificadorDeEmpresas.API.Models
                 return false;
             }
         }
-
-        public bool deletarEmpresa(string emp_id)
+        /// <summary>
+        /// Deleta um empresa na base da dados através do id.
+        /// </summary>
+        /// <param name="emp_id"></param>
+        /// <returns></returns>
+        public bool deletarEmpresa(string id)
         {
             try
             {
+                var emp_id = Convert.ToInt32(id);
+
                 connection = new MySqlConnection(conexaoString);
                 connection.Open(); // abre a conexão
                 command = new MySqlCommand();
                 command.Connection = connection;
 
                 command.CommandType = CommandType.Text;
-                command.CommandText = "delete from empresas where emp_id = '" + emp_id + "';";
+                command.CommandText = "delete from empresas where emp_id = " + emp_id + ";";
 
                 command.ExecuteNonQuery();
                 command.Connection.Close(); //fecha conexão
@@ -82,7 +97,10 @@ namespace ClassificadorDeEmpresas.API.Models
                 return false;
             }
         }
-
+        /// <summary>
+        /// Busca todas as empresas na base de dados, ordenando tal lista pelo id.
+        /// </summary>
+        /// <returns></returns>
         public List<Empresa> BuscarEmpresas()
         {
             try
@@ -117,7 +135,10 @@ namespace ClassificadorDeEmpresas.API.Models
                 throw new Exception("Erro ao acessar a lista de empresas" + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Busca todas as empresas na base de dados, ordenando tal lista pelo indice.
+        /// </summary>
+        /// <returns></returns>
         public List<Empresa> BuscarEmpresasIndices()
         {
             try
@@ -152,7 +173,10 @@ namespace ClassificadorDeEmpresas.API.Models
                 throw new Exception("Erro ao acessar a lista de empresas" + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Busca todas as empresas na base de dados, ordenando tal lista pelas notas.
+        /// </summary>
+        /// <returns></returns>
         public List<Empresa> BuscarEmpresasNotas()
         {
             try
@@ -187,7 +211,10 @@ namespace ClassificadorDeEmpresas.API.Models
                 throw new Exception("Erro ao acessar a lista de empresas" + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Busca todas as empresas na base de dados, ordenando tal lista pelos debitos.
+        /// </summary>
+        /// <returns></returns>
         public List<Empresa> BuscarEmpresasDebitos()
         {
             try

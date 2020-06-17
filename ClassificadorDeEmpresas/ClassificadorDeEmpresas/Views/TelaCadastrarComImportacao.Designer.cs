@@ -69,10 +69,10 @@
             // lbl_arquivoBusca
             // 
             this.lbl_arquivoBusca.AutoSize = true;
-            this.lbl_arquivoBusca.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_arquivoBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl_arquivoBusca.Location = new System.Drawing.Point(30, 190);
             this.lbl_arquivoBusca.Name = "lbl_arquivoBusca";
-            this.lbl_arquivoBusca.Size = new System.Drawing.Size(383, 13);
+            this.lbl_arquivoBusca.Size = new System.Drawing.Size(309, 17);
             this.lbl_arquivoBusca.TabIndex = 14;
             this.lbl_arquivoBusca.Text = "Para procurar um arquivo .json clique no botão:\n";
             // 
@@ -142,6 +142,7 @@
             // btn_buscaArquivo
             // 
             this.btn_buscaArquivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_buscaArquivo.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 8F, System.Drawing.FontStyle.Bold);
             this.btn_buscaArquivo.Location = new System.Drawing.Point(92, 230);
             this.btn_buscaArquivo.Name = "btn_buscaArquivo";
             this.btn_buscaArquivo.Size = new System.Drawing.Size(223, 23);
@@ -153,10 +154,10 @@
             // lbl_nomeEmpresa
             // 
             this.lbl_nomeEmpresa.AutoSize = true;
-            this.lbl_nomeEmpresa.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nomeEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl_nomeEmpresa.Location = new System.Drawing.Point(30, 80);
             this.lbl_nomeEmpresa.Name = "lbl_nomeEmpresa";
-            this.lbl_nomeEmpresa.Size = new System.Drawing.Size(135, 13);
+            this.lbl_nomeEmpresa.Size = new System.Drawing.Size(129, 17);
             this.lbl_nomeEmpresa.TabIndex = 15;
             this.lbl_nomeEmpresa.Text = "Nome da Empresa:";
             // 

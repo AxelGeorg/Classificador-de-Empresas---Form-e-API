@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ClassificadorDeEmpresas.API.Controllers
 {
     //http://localhost:50412/api/empresa/cadastrarempresa
-    [Route("api/[controller]")] //[controller] ==  'Empresa' Controller, por isso no route bota-se empresa, tanto faz o tamanho da letra
+    [Route("api/[controller]")] //[controller] ==  'Empresa'Controller, por isso no route bota-se empresa, sendo indiferente o tamanho da letra
     [ApiController]
     public class EmpresaController : ControllerBase
     {

@@ -120,10 +120,10 @@
             // lbl_empresaDeletar
             // 
             this.lbl_empresaDeletar.AutoSize = true;
-            this.lbl_empresaDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_empresaDeletar.Location = new System.Drawing.Point(35, 111);
+            this.lbl_empresaDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbl_empresaDeletar.Location = new System.Drawing.Point(12, 102);
             this.lbl_empresaDeletar.Name = "lbl_empresaDeletar";
-            this.lbl_empresaDeletar.Size = new System.Drawing.Size(223, 13);
+            this.lbl_empresaDeletar.Size = new System.Drawing.Size(300, 17);
             this.lbl_empresaDeletar.TabIndex = 6;
             this.lbl_empresaDeletar.Text = "Digite o nome da empresa que deseja deletar:";
             // 

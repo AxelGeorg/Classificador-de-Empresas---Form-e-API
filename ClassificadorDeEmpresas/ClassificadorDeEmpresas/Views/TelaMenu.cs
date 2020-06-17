@@ -21,10 +21,14 @@ namespace ClassificadorDeEmpresas.View
         public TelaMenu()
         {
             InitializeComponent();
-            listar(0);
+            listar(rankingExibido);
         }
 
-        public void listar(int opcao)//colocar arametro para determinada lista
+        /// <summary>
+        /// Lista as empresas na listview de acordo com a opção selecionada na combobox, caso não selecionado, será listado o ranking pelo id.
+        /// </summary>
+        /// <param name="opcao"></param>
+        public void listar(int opcao)
         {
             listView.Items.Clear();
             var empresas = new List<Empresa>();
@@ -63,6 +67,10 @@ namespace ClassificadorDeEmpresas.View
             }
         }
 
+        /// <summary>
+        /// retorna a opção selecionada na combobox.
+        /// </summary>
+        /// <returns></returns>
         public int rankingParaSerExibido()
         {
             return rankingExibido;

@@ -94,7 +94,7 @@
             // 
             this.lbl_menu.AutoSize = true;
             this.lbl_menu.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_menu.Location = new System.Drawing.Point(121, 72);
+            this.lbl_menu.Location = new System.Drawing.Point(133, 71);
             this.lbl_menu.Name = "lbl_menu";
             this.lbl_menu.Size = new System.Drawing.Size(163, 19);
             this.lbl_menu.TabIndex = 2;

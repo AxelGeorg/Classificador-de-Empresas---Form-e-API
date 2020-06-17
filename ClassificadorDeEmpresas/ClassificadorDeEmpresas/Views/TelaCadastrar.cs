@@ -51,11 +51,9 @@ namespace ClassificadorDeEmpresas.Views
 
                 if (MessageBox.Show("Deseja cadastrar essa empresa?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-
                     var retorno = service.Post_Empresa(emp).GetAwaiter().GetResult();
 
                     MessageBox.Show(retorno.Mensagem, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
 
                     tela.listar(tela.rankingParaSerExibido());
                     this.Hide();
