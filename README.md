@@ -1,4 +1,4 @@
-# Projeto Classicação de Empresas
+# Projeto Classificação de Empresas
 
 ## - Informação sobre o presente projeto:
 
